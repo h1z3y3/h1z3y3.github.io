@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.82.0 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Tue, 20 Apr 2021 02:07:32 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>用 kqueue 实现一个简单的 TCP Server</title><link>https://h1z3y3.me/posts/writing-a-tcp-server-using-kqueue/</link><guid isPermaLink="true">https://h1z3y3.me/posts/writing-a-tcp-server-using-kqueue/</guid><pubDate>Fri, 16 Apr 2021 21:36:44 +0800</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h2 id="介绍">介绍&lt;/h2>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.82.0 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Tue, 20 Apr 2021 02:08:03 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>用 kqueue 实现一个简单的 TCP Server</title><link>https://h1z3y3.me/posts/writing-a-tcp-server-using-kqueue/</link><guid isPermaLink="true">https://h1z3y3.me/posts/writing-a-tcp-server-using-kqueue/</guid><pubDate>Fri, 16 Apr 2021 21:36:44 +0800</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h2 id="介绍">介绍&lt;/h2>
 &lt;p>在 &lt;a href="https://dev.to/frosnerd/explain-non-blocking-i-o-like-i-m-five-2a5f">非阻塞 I/O 超简明介绍&lt;/a> 中，
 我们已经讨论过现代 Web 服务器可以处理大量并发请求，这得益于现代操作系统内核内置的事件通知机制。
 受 Linux epoll [ &lt;a href="https://man7.org/linux/man-pages/man7/epoll.7.html">文档&lt;/a> ] 启发，
@@ -3338,7 +3338,7 @@ branch: master
 &lt;pre>&lt;code>&amp;gt; hexo generate
 &amp;gt; hexo deploy
 &lt;/code>&lt;/pre>&lt;h2 id="注意事项">注意事项&lt;/h2>
-&lt;ol>
+&lt;ul>
 &lt;li>
 &lt;p>有些用户没有设置Github的SSH，会导致上面两句失败。SSH的介绍和设置方法可以查看
 &lt;a href="https://help.github.com/articles/generating-ssh-keys">官方教程&lt;/a>,配置起来很简单。
@@ -3358,7 +3358,7 @@ branch: master
 &lt;p>如果你是windows用户，那么当你执行&lt;code>$ hexo deploy&lt;/code>命令的时候，
 可能会先后出现提示框让你输入你的&lt;strong>Github用户名&lt;/strong>和&lt;strong>Github密码&lt;/strong>，只要输入正确，上传就没有问题。&lt;/p>
 &lt;/li>
-&lt;/ol>
+&lt;/ul>
 &lt;p>好了，现在我们的博客已经在Github上面部署成功了，可以在浏览器访问&lt;code>gitzhaoyang.github.io&lt;/code>试试了。&lt;/p>
 &lt;h2 id="提示">提示&lt;/h2>
 &lt;p>现在Hexo支持更加简单的命令格式了，比如：&lt;/p>
