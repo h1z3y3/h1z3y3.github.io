@@ -1,0 +1,135 @@
+.list .main-inner {
+    width: $listWidth;
+}
+
+.list-title {
+    text-align: center;
+}
+
+.list {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+@if ($listDatePosition == "right") {
+    .list-item-title {
+        //flex: 1;
+    }
+    .list-item-time {
+        margin-left: 1em;
+    }
+}
+@if ($listDatePosition == "left") {
+    .list-item {
+        flex-direction: row-reverse;
+    }
+    .list-item-time {
+        //flex: 1;
+    }
+    .list-item-title {
+        text-align: right;
+        margin-left: 1em;
+    }
+}
+
+.list-item {
+    line-height: 1.1;
+    position: relative;
+    transition: border $duration;
+    margin-top: 1em;
+    padding-bottom: 0.5em;
+    display: block;
+    align-items: baseline;
+    text-align: center;
+    &:hover {
+        border-bottom-color: var(--color-primary);
+        ::before {
+            background: var(--color-primary);
+        }
+    }
+
+    @if ($showPostsDot) {
+        ::before {
+            content: " ";
+            position: absolute;
+            left: 0.618em;
+            top: 0.618em;
+            width: $fontSize / 3;
+            height: $fontSize / 3;
+            background: var(--color-contrast-low);
+            border-radius: 50%;
+            border: 1px solid var(--color-bg);
+            transition: background $duration;
+            font-size: 1rem;
+        }
+    }
+
+}
+
+.list-item-title {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--color-contrast-high);
+    padding: 5px 0;
+    border-bottom: 1px dashed #aaa;
+}
+
+.list-item-time {
+    margin: 0 0.618em 0 2em;
+    color: var(--color-contrast-high);
+    line-height: 1.5;
+    font-family: 'Merriweather', serif;
+    display: block;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+
+@media (min-width: 600px) {
+    .list-item {
+        text-align: left;
+        padding-bottom: 0;
+    }
+
+    .list-item-title {
+        color: var(--color-contrast-high);
+        text-overflow: ellipsis;
+        max-width: calc(100% - 180px);
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 22px;
+    }
+
+    .list-item-time {
+        font-size: 19px;
+        text-align: right;
+        float: right;
+        color: var(--color-contrast-high);
+        padding: 5px 0;
+        margin-top: 5px;
+        display: block;
+    }
+
+}
+
+.list-read-more {
+    margin-top: 1em;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.list-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 2em;
+}
+
+.term-count {
+    color: var(--color-contrast-medium);
+    font-size: 0.7em;
+}
