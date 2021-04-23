@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-04-23T06:34:37+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.82.1">Hugo</generator><entry><title type="text">Web 反爬指南（或至少让其更难抓取）</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/how-to-prevent-scraping/"/><id>https://h1z3y3.me/posts/how-to-prevent-scraping/</id><updated>2021-04-22T20:02:34+00:00</updated><published>2021-04-22T20:02:34+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">Web 反爬指南（或至少让其更难抓取） 提示：这篇文章是我 Stack Overflow 这个问题 回答的扩展， 我把它整理在 Github 因为它实在是太长了，超过了 Stack Overflow 的字数限制（最多 3 万个字，这文章已经超过 4 万字） 欢迎大家修改、完善还有分享，本文使……</summary><content type="html">&lt;h1 id="web-反爬指南或至少让其更难抓取">Web 反爬指南（或至少让其更难抓取）&lt;/h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-04-23T06:41:22+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.82.1">Hugo</generator><entry><title type="text">使用 Github Actions 自动发布 hugo 站点</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/"/><id>https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/</id><updated>2021-04-22T22:21:44+00:00</updated><published>2021-04-22T22:21:44+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从 hexo 转移到了 hugo ， 这两个都是非常优秀的静态网站生成工具。 但是不得不说，使用 hugo 之后感觉易用……</summary><content type="html">&lt;p>从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从
+&lt;a href="https://github.com/hexojs/hexo">hexo&lt;/a>
+转移到了
+&lt;a href="https://github.com/gohugoio/hugo">hugo&lt;/a> ，
+这两个都是非常优秀的静态网站生成工具。&lt;/p>
+&lt;p>但是不得不说，使用 hugo 之后感觉易用性以及文件的生成速度都优于我之前使用的 hexo 的版本（说的严谨一些，我也不知道现在如何）。&lt;/p>
+&lt;p>同时我还给自己重新挑选了主题，使用的是
+&lt;a href="https://github.com/h1z3y3/hugo-theme-meme">hugo-theme-meme&lt;/a> ，
+并且我还做了一部分自定义， 比如 文章列表页 的样式、字体、还修改了移动端标题过长样式错乱的 bug，
+另外还接入了 &lt;a href="">Gitalk&lt;/a>（已经提 pr 并合并）和页面右下角的 &lt;a href="">Webpusher&lt;/a> (没有提交 PR),
+不得不说，把自己的博客评论用 Github Issue 来维护的想法也太赞了！&lt;/p>
+&lt;h1 id="使用-github-action-自动发布-hugo-站点">使用 Github Action 自动发布 hugo 站点&lt;/h1>
+&lt;p>如何使用 hugo 以及 Github Pages 的基本知识我就不再赘述，本文主要给大家讲解如何使用 Github Actions 自动编译你的站点实时发布，
+本文可以帮你解决的问题是：如何使用你的 &lt;code>*.github.io&lt;/code> 的仓库维护站点的配置 （&lt;code>config.toml&lt;/code>）、
+使用的主题、或者自己 markdown 格式的原文，而不需要创建新仓库。&lt;/p>
+&lt;p>因为我自己一开始也想创建新仓库维护，但是后来查阅了一些相关文档后，发现完全没必要，下面介绍给大家。&lt;/p>
+&lt;h2 id="定义-github-actions">定义 Github Actions&lt;/h2>
+&lt;p>下面是我站点的 Hugo Actions 的配置文件，和原始配置有些小改动，
+原始配置文件可以在 &lt;a href="https://github.com/peaceiris/actions-gh-pages">这里&lt;/a> 找到&lt;/p>
+&lt;p>在 hugo 站点的根目录创建 &lt;code>.github/workflows/gh-pages.yml&lt;/code> ，并将下面的内容拷贝进去。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">github pages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># on 是 Actions 的触发条件，这里的配置说明当 master 分支有提交的时候，根据这个配置文件执行&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">push&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">branches&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">master&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Set a branch to deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c"># jobs 是要执行的任务，我们看到他要执行 deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">jobs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">deploy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">runs-on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu-18.04&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 运行环境&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">steps&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 执行步骤&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># checkout 分支&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">actions/checkout@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">submodules&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch Hugo themes (true OR recursive)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">fetch-depth&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># Fetch all history for .GitInfo and .Lastmod&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 安装 hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Setup Hugo&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-hugo@v2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">hugo-version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;latest&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># extended: true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 编译站点&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">run&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hugo --minify&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 创建 CNAME，这个是原始配置中没有的&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;finnp/create-file-action@master&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">env&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">FILE_NAME&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;./public/CNAME&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">FILE_DATA&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;h1z3y3.me&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 将站点发布到对应分支&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deploy&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">uses&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">peaceiris/actions-gh-pages@v3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">with&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">github_token&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">${{ secrets.GITHUB_TOKEN }}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">publish_dir&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Github Actions 更详细的使用可以从
+&lt;a href="https://docs.github.com/en/actions/learn-github-actions">这里&lt;/a> 获取。&lt;/p>
+&lt;h2 id="设置-hugo-目录的提交仓库为-githubio">设置 hugo 目录的提交仓库为 *.github.io&lt;/h2>
+&lt;p>如果你的 hugo 没在 github 维护，执行:&lt;/p>
+&lt;pre>&lt;code>&amp;gt; git remote add origin git@github.com:your/your.github.io.git
+&lt;/code>&lt;/pre>&lt;p>如果已经在 github 维护了，执行：&lt;/p>
+&lt;pre>&lt;code>&amp;gt; git remote set-url origin git@github.com:your/your.github.io.git
+&lt;/code>&lt;/pre>&lt;p>如果仓库有文件，很可能你需要使用 &lt;code>git push -f origin master&lt;/code> 来强制覆盖。&lt;/p>
+&lt;p>推送到 Github 之后，现在 Github 的代码就是你 hugo 的根目录，这时候我们的 *.github.io 的站点肯定不工作了，接下来往下看。&lt;/p>
+&lt;h2 id="actions-执行">Actions 执行&lt;/h2>
+&lt;p>我们切换到 &lt;strong>Actions&lt;/strong> 选项卡，可以看到我们刚才提交的工作流已经执行了，
+同时在 &lt;strong>Code&lt;/strong> 选项卡，也帮我们创建好了一个 &lt;code>gh-pages&lt;/code> 的分支，
+切换之后发现这个 hugo 已经编译好的静态站点。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/actions-list.png" alt="">&lt;/p>
+&lt;h2 id="修改-github-page-站点的默认分支">修改 Github Page 站点的默认分支&lt;/h2>
+&lt;p>没错，&lt;code>*.github.io&lt;/code> 的仓库，允许你自定义你要提供静态站点的分支，默认是 master，可以自定义为其他的&lt;/p>
+&lt;p>操作方法：&lt;/p>
+&lt;p>进入你的 &lt;code>*.github.io&lt;/code> 的仓库，点击项目的 &lt;code>Settings&lt;/code> ，并点击左侧的 &lt;code>Pages&lt;/code>，在这里你可以自定义一些你站点的配置，
+在这里你可以自己选择自己站点要使用的&lt;code>分支&lt;/code>以及&lt;code>目录&lt;/code>，我们这里切换为 &lt;code>gh-pages&lt;/code> 这个分支，并点击保存。&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/set-github-pages-default-branch.png" alt="">&lt;/p>
+&lt;h2 id="检查">检查&lt;/h2>
+&lt;p>全部设置好之后，稍等几分钟生效后，通过浏览器访问 &lt;code>your.github.io&lt;/code>，就可以正常访问了，之后每次我们文章有更新，
+从 &lt;code>master&lt;/code> 分支提交之后，Github 就会通过 Actions 帮我们去编译然后发布在 &lt;code>gh-pages&lt;/code> 分支，十分方便。&lt;/p>
+&lt;p>如果你设置了 CNAME，那么请参照我 Actions 配置，里面有创建 CNAME 文件的步骤，添加到你自己的配置即可。&lt;/p></content><category scheme="https://h1z3y3.me/tags/hugo/" term="hugo" label="hugo"/></entry><entry><title type="text">Web 反爬指南（或至少让其更难抓取）</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/how-to-prevent-scraping/"/><id>https://h1z3y3.me/posts/how-to-prevent-scraping/</id><updated>2021-04-22T20:02:34+00:00</updated><published>2021-04-22T20:02:34+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">Web 反爬指南（或至少让其更难抓取） 提示：这篇文章是我 Stack Overflow 这个问题 回答的扩展， 我把它整理在 Github 因为它实在是太长了，超过了 Stack Overflow 的字数限制（最多 3 万个字，这文章已经超过 4 万字） 欢迎大家修改、完善还有分享，本文使……</summary><content type="html">&lt;h1 id="web-反爬指南或至少让其更难抓取">Web 反爬指南（或至少让其更难抓取）&lt;/h1>
 &lt;hr>
 &lt;p>提示：这篇文章是我 Stack Overflow &lt;a href="http://stackoverflow.com/a/34828465/4428462">这个问题&lt;/a> 回答的扩展，
 我把它整理在 Github 因为它实在是太长了，超过了 Stack Overflow 的字数限制（最多 3 万个字，这文章已经超过 4 万字）&lt;/p>
