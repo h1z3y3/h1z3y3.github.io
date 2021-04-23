@@ -16,7 +16,7 @@ tags: [hugo]
 [hugo-theme-meme](https://github.com/h1z3y3/hugo-theme-meme) ，
 并且我还做了一部分自定义， 比如 文章列表页 的样式、字体、还修改了移动端标题过长样式错乱的 bug，
 另外还接入了 [Gitalk]()（已经提 pr 并合并）和页面右下角的 [Webpusher]() (没有提交 PR),
-不得不说，把自己的博客评论用 Github Issue 来维护的想法也太赞了！
+不得不说，把自己的博客评论用 [Github Issue](https://github.com/h1z3y3/h1z3y3.github.io/issues) 来维护的想法也太赞了！
 
 # 使用 Github Action 自动发布 hugo 站点
 
