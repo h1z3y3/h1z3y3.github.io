@@ -665,7 +665,7 @@ uglyURLs = false
 
     gitalkClientID = "03b4d6fcd0cfa3a62b6f"
     gitalkClientSecret = "f820e2998298a8bd9ea1b57fbdf623f4084b0c27"
-    gitalkRepo = "blog-comment"
+    gitalkRepo = "h1z3y3.github.io"
     gitalkOwner = "h1z3y3"
     gitalkAdmin = ["h1z3y3"]
     gitalkLable = ["Gitalk"]
