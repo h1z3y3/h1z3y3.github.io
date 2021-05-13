@@ -1,5 +1,5 @@
 ---
-title: Vim 初级入门
+title: 如何在 Go 中组织项目结构
 date: 2021-05-12 08:04:11
 tags: [golang, clean-arch]
 ---
