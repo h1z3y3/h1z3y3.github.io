@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-04-27T16:09:23+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.82.1">Hugo</generator><entry><title type="text">使用 Github Actions 自动发布 hugo 站点</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/"/><id>https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/</id><updated>2021-04-22T22:21:44+00:00</updated><published>2021-04-22T22:21:44+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从 hexo 转移到了 hugo ， 这两个都是非常优秀的静态网站生成工具。 但是不得不说，使用 hugo 之后感觉易用……</summary><content type="html">&lt;p>从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-05-13T02:35:16+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.83.1">Hugo</generator><entry><title type="text">使用 Github Actions 自动发布 hugo 站点</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/"/><id>https://h1z3y3.me/posts/hugo-auto-deploy-github-with-actions/</id><updated>2021-04-22T22:21:44+00:00</updated><published>2021-04-22T22:21:44+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从 hexo 转移到了 hugo ， 这两个都是非常优秀的静态网站生成工具。 但是不得不说，使用 hugo 之后感觉易用……</summary><content type="html">&lt;p>从 2018 年底到 2021 年初，博客一直搁置，虽然也偶尔写几篇文章，但是都发布在团队的公众号中了， 现在重新开始维护自己的博客，也从
 &lt;a href="https://github.com/hexojs/hexo">hexo&lt;/a>
 转移到了
 &lt;a href="https://github.com/gohugoio/hugo">hugo&lt;/a> ，
@@ -4456,4 +4456,357 @@ branch: master
 hexo g == hexo generate
 hexo d == hexo deploy
 hexo n == hexo new
-&lt;/code>&lt;/pre>&lt;p>后续我会把如何配置博客信息，发表文章，设置博客主题，不同电脑间进行同时更新自己的Blog的方法等更新上来,感兴趣的人可以关注&lt;/p></content><category scheme="https://h1z3y3.me/tags/hexo/" term="Hexo" label="Hexo"/><category scheme="https://h1z3y3.me/tags/github/" term="Github" label="Github"/></entry></feed>
+&lt;/code>&lt;/pre>&lt;p>后续我会把如何配置博客信息，发表文章，设置博客主题，不同电脑间进行同时更新自己的Blog的方法等更新上来,感兴趣的人可以关注&lt;/p></content><category scheme="https://h1z3y3.me/tags/hexo/" term="Hexo" label="Hexo"/><category scheme="https://h1z3y3.me/tags/github/" term="Github" label="Github"/></entry><entry><title type="text"/><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/how-i-structure-services-in-go/"/><id>https://h1z3y3.me/posts/how-i-structure-services-in-go/</id><updated>0001-01-01T00:00:00+00:00</updated><published>0001-01-01T00:00:00+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">如何在 Go 中组织项目结构 译者注：在翻译这篇文章之前，我自己其实对 Bob 大叔的 Clean Architecture 也做过一些研究，在项目中实践之后， 也确确实实体验到了分层的魅力。在层与层之间将依赖进行隔离，各个层只关注自己本身的逻辑， 所以能……</summary><content type="html">&lt;h1 id="如何在-go-中组织项目结构">如何在 Go 中组织项目结构&lt;/h1>
+&lt;p>译者注：在翻译这篇文章之前，我自己其实对 Bob 大叔的 Clean Architecture 也做过一些研究，在项目中实践之后，
+也确确实实体验到了分层的魅力。在层与层之间将依赖进行隔离，各个层只关注自己本身的逻辑，
+所以能让开发者只关注本层的业务逻辑， 也更容易进行单元测试，无形中就提高了你代码的质量和可阅读性。
+我觉得如果你对自己的代码有追求，就一定要去学习一下 Clean Architecture。
+当然另一方面，Clean Architecture 也不是银弹，在复杂的项目中确实能帮助我们解藕，但是如果你的项目非常简单，
+那传统的 MVC 就足够了，就像本文作者最后说的，千万不要让简单的事情变复杂。
+另外，其实对于 Golang 的项目组织方式，github 上面火许多 star 非常多的项目，大多开箱即用，
+比如：
+&lt;a href="https://github.com/xinliangnote/go-gin-api">go-gin-api&lt;/a> （国人开源的）、
+&lt;a href="https://github.com/bxcodec/go-clean-arch">go-clean-arch&lt;/a> ，这里分享给大家，也是给大家提供更多的选择。&lt;/p>
+&lt;p>以下是原文：&lt;/p>
+&lt;p>一个 main.go 文件，几个 HTTP handler 就可以构建一个新的 HTTP 服务。然而，当你开始添加更多的路由规则，
+开始将不同的功能拆分到不同的文件中，可能会随处创建好多 packages ，但是你不确定长远来看将会它们怎样发展，
+同时你也希望它们能够随着服务增长而有意义。&lt;/p>
+&lt;p>这几年我经历过几次这样的场景，后来读了一些文章、博客还有 Robert Martin 的
+&lt;a href="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html">Clean Architecture&lt;/a> (干净架构)，
+我找到了一种适合我的通用的代码结构，所以我想我应该分享出来。需要注意的是它可能并不能刚好适合你的应用场景，特别是一些特别简单的服务，
+比如说一个 main.go 文件，几个 packages 就已经足够的服务。&lt;/p>
+&lt;p>让我们直接开始！&lt;/p>
+&lt;h2 id="概览">概览&lt;/h2>
+&lt;pre>&lt;code class="language-goalng" data-lang="goalng">Go-Service
+- cmd/
+- api/
+- pkg/
+- api/
+- db/
+- services/
+- serviceA/
+- serviceB/
+- ...
+- utils/
+- docker-compose.yml
+- Dockerfile
+- Makefile
+- go.mod
+- go.sum
+- &amp;lt;environment&amp;gt;.env
+- README.md
+- ...
+&lt;/code>&lt;/pre>&lt;p>整个结构有 3 个重要的部分：root（译者注：根目录）、cmd 和 pkg。我将逐个解释各个文件夹的职责，
+然后我们再来仔细看看每个 service (&lt;code>pkg/service/...&lt;/code>) 如何组织。&lt;/p>
+&lt;h3 id="root根目录">Root（根目录）&lt;/h3>
+&lt;p>我喜欢将一些启动和运行的代码放到根目录，比如：构建工具、配置文件、依赖管理等等。
+它也提供给阅读代码的人或开发代码的人一个很好的切入点，他们启动服务所需的所有配置都在项目根目录下。&lt;/p>
+&lt;h3 id="cmd">Cmd&lt;/h3>
+&lt;p>这里会被分成几个目录，每个目录都是我们整个服务一部分，比如 API 服务，定时脚本任务等等。
+实际上这里会有各子服务的 main package，所以我们在这里初始化配置和我们需要的依赖包，最后子服务会被编译成对应的二进制来提供服务。&lt;/p>
+&lt;h3 id="pkg">Pkg&lt;/h3>
+&lt;p>这里包含了我们项目的主要部分：定义我们服务业务逻辑的一些 package。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>api/&lt;/p>
+&lt;p>在这里，我定义了如何通过初始化数据库，服务，HTTP路由器+中间件来连接API，并定义了运行API所需的配置。
+我一般会加一个 &lt;code>Start(cfg *Config)&lt;/code> 函数，提供给 &lt;code>cmd/api/main.go&lt;/code> 调用。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>db/&lt;/p>
+&lt;p>顾名思义，这里是连接、迁移数据库逻辑，我也倾向于将任何关于迁移的文件夹或文件都放在这里。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>utils/&lt;/p>
+&lt;p>我会将任何对请求、日志、自定义中间件等提供辅助功能的 pakcage 放在这里。我虽然不太喜欢这个名字，但是我也没找到更适合它的名字了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>services/&lt;/p>
+&lt;p>这个需要详细解释一下，因为我用特定的方式去组织所有的 service。通常来说，每个 package
+都定义了各自服务的功能（基于功能而不是函数进行组织结构）。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="services">Services&lt;/h2>
+&lt;p>让我们通过一个例子来看看他们是如何组织的。我们要创建一个服务，可以让我们保存并创建文章，他看起来是下面这样：&lt;/p>
+&lt;pre>&lt;code>...
+- Services/
+- Article/
+- store/
+- repo.go
+- transport/
+- http.go
+- article.go
+- errors.go
+- models.go
+&lt;/code>&lt;/pre>&lt;p>我们将数据的存储和传输逻辑分到了不同的 package，这帮助我们专注于我们的业务逻辑而不需要关心我们应该如何保存数据或者其如何传递给调用方。
+此外，当我们想要改变我们的底层存储时，我们只需要定义好存储的 interface，就可以轻松地更换底层存储，
+而不需要修改其余的逻辑（ 一个简单的
+&lt;a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">依赖反转原则&lt;/a> 的例子 ）。&lt;/p>
+&lt;p>&lt;code>error.go&lt;/code> 和 &lt;code>models.go&lt;/code> 比较简单，就不赘述了，让我们看看 &lt;code>article.go&lt;/code> 都有什么功能：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-golang" data-lang="golang">&lt;span class="kn">package&lt;/span> &lt;span class="nx">articles&lt;/span>
+&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;span class="s">&amp;#34;context&amp;#34;&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// Repo defines the DB level interaction of articles
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">type&lt;/span> &lt;span class="nx">Repo&lt;/span> &lt;span class="kd">interface&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">id&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Article&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nf">Create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">ar&lt;/span> &lt;span class="nx">ArticleCreateUpdate&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Service defines the service level contract that other services
+&lt;/span>&lt;span class="c1">// outside this package can use to interact with Article resources
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">type&lt;/span> &lt;span class="nx">Service&lt;/span> &lt;span class="kd">interface&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">id&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Article&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nf">Create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">ar&lt;/span> &lt;span class="nx">ArticleCreateUpdate&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Article&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kd">type&lt;/span> &lt;span class="nx">article&lt;/span> &lt;span class="kd">struct&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">repo&lt;/span> &lt;span class="nx">Repo&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// New Service instance
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">New&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">repo&lt;/span> &lt;span class="nx">Repo&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nx">Service&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">article&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="nx">repo&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Get sends the request straight to the repo
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">s&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">article&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">id&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Article&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">repo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Create passes of the created to the repo and retrieves the newly created record
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">s&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">article&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span> &lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">ar&lt;/span> &lt;span class="nx">ArticleCreateUpdate&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Article&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">id&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">repo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">ar&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">Article&lt;/span>&lt;span class="p">{},&lt;/span> &lt;span class="nx">err&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">s&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">repo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里需要注意的是，在调用 &lt;code>New()&lt;/code> 创建我们 &lt;code>Article&lt;/code> 服务实例的时候，传递了一个 &lt;code>Repo&lt;/code> interface。
+这个是我们刚刚说的解耦的好处，而且也能帮助我们更好地去做单元测试。
+我们可以通过创建一个实现了 &lt;code>Repo&lt;/code> interface 的 mock 实例，然后作为 &lt;code>New()&lt;/code> 的参数传递给 &lt;code>Article&lt;/code>，
+这样我们就可以绕过我们的数据库去对我们的逻辑进行单元测试。&lt;/p>
+&lt;h3 id="如何暴露服务">如何暴露服务&lt;/h3>
+&lt;p>设置方法不需要知道每个服务的接入点、如何初始化存储层或者其他的一些事项。
+只需要将数据库连接和路由实例传递给 &lt;code>Activate()&lt;/code> 方法，
+然后 &lt;code>transport&lt;/code> package 中的路由注册程序将其路由进行注册，就可以对外提供服务了：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-golang" data-lang="golang">&lt;span class="kn">package&lt;/span> &lt;span class="nx">transport&lt;/span>
+&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;span class="s">&amp;#34;database/sql&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;net/http&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/gin-gonic/gin&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/services/articles&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/services/articles/store&amp;#34;&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="kd">type&lt;/span> &lt;span class="nx">handler&lt;/span> &lt;span class="kd">struct&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">ArticleService&lt;/span> &lt;span class="nx">articles&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Service&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Activate sets all the services required for articles and registers all the endpoints with the engine.
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">Activate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">router&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Engine&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">db&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">sql&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DB&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">articleService&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">articles&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">New&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">store&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">New&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">db&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="nf">newHandler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">router&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">articleService&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kd">func&lt;/span> &lt;span class="nf">newHandler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">router&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Engine&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">as&lt;/span> &lt;span class="nx">articles&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Service&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">h&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">{&lt;/span>
+&lt;span class="nx">ArticleService&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">as&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">GET&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/articles/:id&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">h&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Get&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">POST&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/articles/&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">h&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Create&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">h&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">h&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">Create&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">c&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Context&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="o">...&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还记得我之前说的 &lt;code>Start()&lt;/code> 方法（在 &lt;code>pkg/api&lt;/code> 中）吗？
+它是我们启动我们服务和配置的入口：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-golang" data-lang="golang">&lt;span class="kn">package&lt;/span> &lt;span class="nx">api&lt;/span>
+&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;span class="s">&amp;#34;context&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/gin-gonic/gin&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/db&amp;#34;&lt;/span>
+&lt;span class="nx">articles&lt;/span> &lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/services/articles/transport&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/utils/log&amp;#34;&lt;/span>
+&lt;span class="s">&amp;#34;github.com/kott/go-service-example/pkg/utils/middleware&amp;#34;&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;span class="c1">// Config defines what the API requires to run
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">type&lt;/span> &lt;span class="nx">Config&lt;/span> &lt;span class="kd">struct&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">DBHost&lt;/span> &lt;span class="kt">string&lt;/span>
+&lt;span class="nx">DBPort&lt;/span> &lt;span class="kt">int&lt;/span>
+&lt;span class="nx">DBUser&lt;/span> &lt;span class="kt">string&lt;/span>
+&lt;span class="nx">DBPassword&lt;/span> &lt;span class="kt">string&lt;/span>
+&lt;span class="nx">DBName&lt;/span> &lt;span class="kt">string&lt;/span>
+&lt;span class="nx">AppHost&lt;/span> &lt;span class="kt">string&lt;/span>
+&lt;span class="nx">AppPort&lt;/span> &lt;span class="kt">int&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Start initializes the API server, adding the required middleware and dependent services
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">Start&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">cfg&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Config&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">conn&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">GetConnection&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DBHost&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DBPort&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DBUser&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DBPassword&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">DBName&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ctx&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;unable to establish a database connection: %s&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Error&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">defer&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="nx">conn&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">conn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Close&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}()&lt;/span>
+&lt;span class="nx">router&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">New&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="cm">/* some middleware */&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nx">articles&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Activate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">router&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">conn&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Run&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Sprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;%s:%d&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">AppHost&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">cfg&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">AppPort&lt;/span>&lt;span class="p">));&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Fatal&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Background&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="nx">err&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Error&lt;/span>&lt;span class="p">())&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以上就是全部内容，实际上只是试图去找到一种抽象的方法，以便于让你的程序更易读，而不需要增加你项目的复杂度。&lt;/p>
+&lt;h2 id="总结">总结&lt;/h2>
+&lt;p>有许许多多可以组织项目的方式，这个方式是我认为最好的。
+根据功能将 service 分开有助于之后进行修改时定义上下文边界和代码导航。
+将路由注册、业务逻辑、存储等放到同一个 &lt;code>service&lt;/code> 层中，也让我们更关注业务逻辑本身和更容易地进行测试。
+不要让简单的事情变复杂！如果您想节约时间，那就一定要这样做。&lt;/p>
+&lt;p>我希望能帮助到你，如果你想阅读所有源码，你可以在 &lt;a href="https://github.com/kott/go-service-example">Github&lt;/a> 下载。&lt;/p>
+&lt;hr>
+&lt;p>via: &lt;a href="https://medium.com/@ott.kristian/how-i-structure-services-in-go-19147ad0e6bd">https://medium.com/@ott.kristian/how-i-structure-services-in-go-19147ad0e6bd&lt;/a>&lt;/p>
+&lt;p>作者：&lt;a href="https://medium.com/@ott.kristian">Kristian Ott&lt;/a>
+译者：&lt;a href="https://h1z3y3.me">h1z3y3&lt;/a>&lt;/p>
+&lt;p>本文由 &lt;a href="https://github.com/studygolang/GCTT">GCTT&lt;/a> 原创编译，&lt;a href="https://studygolang.com/">Go 中文网&lt;/a> 荣誉推出&lt;/p></content></entry></feed>
