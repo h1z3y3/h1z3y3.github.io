@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Fri, 21 May 2021 06:58:51 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>如何在 Go 中组织项目结构</title><link>https://h1z3y3.me/posts/how-i-structure-services-in-go/</link><guid isPermaLink="true">https://h1z3y3.me/posts/how-i-structure-services-in-go/</guid><pubDate>Wed, 12 May 2021 08:04:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>译者注：在翻译这篇文章之前，我自己其实对 Bob 大叔的 Clean Architecture 也做过一些研究，在项目中实践之后，
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Fri, 21 May 2021 07:34:15 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>go module 使用 gitlab 私有仓库</title><link>https://h1z3y3.me/posts/go-private-git-repository/</link><guid isPermaLink="true">https://h1z3y3.me/posts/go-private-git-repository/</guid><pubDate>Thu, 20 May 2021 12:33:52 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h1 id="go-module-使用-gitlab-私有仓库">Go Module 使用 gitlab 私有仓库&lt;/h1>
+&lt;p>包管理是 Go 一直被诟病做的不好的功能。在 1.11 之前，go get 缺乏对依赖包版本管理和 reproducible build 的支持。
+当时在 Go 社区当时诞生了许多好用的工具，比如 glide，dep 等。
+在 1.11 版本之后， Go 引入了 Go Module，再也没有 GOPATH 的限制，你可以随意在任何路径写项目，但是此时对私有仓库的支持还不是很好。
+而在 1.13 版本之后， Go 对 Go Module 又进行了优化，支持了 &lt;code>GOPRIVATE&lt;/code> 环境变量，可以指定私有仓库的地址，使用十分便捷。
+大家在使用过程中，或多或少地会遇到一些问题，下面我针对自己遇到的问题进行总结。&lt;/p>
+&lt;h2 id="go-get">go get&lt;/h2>
+&lt;p>如果在没有进行任何设置的情况下直接执行 &lt;code>go get your.gitlab.com/pkg/example&lt;/code>，你很可能会遇到以下错误：&lt;/p>
+&lt;pre>&lt;code>go get: module your.gitlab.com/pkg/example: git ls-remote -q origin in /go/pkg/mod/cache/vcs/a39fc2dbfb0a9645950d24df5d7e922bb7a6a877aecfe2b20f74b96385a83109: exit status 128:
+fatal: could not read Username for 'https://your.gitlab.com': terminal prompts disabled
+Confirm the import path was entered correctly.
+If this is a private repository, see https://golang.org/doc/faq#git_https for additional information.
+&lt;/code>&lt;/pre>&lt;p>其实错误提示已经把解决方案给到我们了，我们只需要点击 &lt;a href="https://golang.org/doc/faq#git_https">https://golang.org/doc/faq#git_https&lt;/a> 查看即可。&lt;/p>
+&lt;p>下面是原文：&lt;/p>
+&lt;blockquote>
+&lt;h4 id="why-does-go-get-use-https-when-cloning-a-repository">Why does &amp;ldquo;go get&amp;rdquo; use HTTPS when cloning a repository?&lt;/h4>
+&lt;p>Companies often permit outgoing traffic only on the standard TCP ports 80 (HTTP) and 443 (HTTPS), blocking outgoing traffic on other ports, including TCP port 9418 (git) and TCP port 22 (SSH).
+When using HTTPS instead of HTTP, git enforces certificate validation by default, providing protection against man-in-the-middle, eavesdropping and tampering attacks.
+The go get command therefore uses HTTPS for safety.&lt;/p>
+&lt;p>Git can be configured to authenticate over HTTPS or to use SSH in place of HTTPS. To authenticate over HTTPS, you can add a line to the $HOME/.netrc file that git consults:&lt;/p>
+&lt;pre>&lt;code>machine github.com login USERNAME password APIKEY
+&lt;/code>&lt;/pre>&lt;p>For GitHub accounts, the password can be a &lt;a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access token&lt;/a>.
+Git can also be configured to use SSH in place of HTTPS for URLs matching a given prefix. For example, to use SSH for all GitHub access, add these lines to your ~/.gitconfig:&lt;/p>
+&lt;pre>&lt;code>[url &amp;quot;ssh://git@github.com/&amp;quot;]
+insteadOf = https://github.com/
+&lt;/code>&lt;/pre>&lt;/blockquote>
+&lt;p>大概意思是，HTTPS 更安全，所以 &lt;code>go get&lt;/code> 命令使用 HTTPS。&lt;/p>
+&lt;p>如果你要用 HTTPS，那你就需要配置 HTTPS 的用户名和密码：&lt;/p>
+&lt;pre>&lt;code>machine github.com login USERNAME password APIKEY
+&lt;/code>&lt;/pre>&lt;p>当然也可以使用 ssh，需要修改你的 git 配置，&lt;/p>
+&lt;p>修改当前用户的 &lt;code>~/.gitconfig&lt;/code>，添加：&lt;/p>
+&lt;pre>&lt;code>[url &amp;quot;ssh://git@your.gitlab.com/&amp;quot;]
+insteadOf = https://your.gitlab.com/
+&lt;/code>&lt;/pre>&lt;p>另外执行下面的命令也能达到同样的效果：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git config --global url.&lt;span class="s2">&amp;#34;git@your.gitlab.com/&amp;#34;&lt;/span>.insteadof &lt;span class="s2">&amp;#34;https://your.gitlab.com/&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>操作完之后，我们就可以使用 &lt;code>go get&lt;/code> 了，使用 &lt;code>go get -v&lt;/code> 可以展示执行日志。&lt;/p>
+&lt;h2 id="gonoproxy">GONOPROXY&lt;/h2>
+&lt;p>众所周知，国内用户大多设置代理，我们在 Go 1.12 之前如果使用 &lt;code>GOPROXY&lt;/code> 这个环境变量设置代理，并使用私有仓库，很有可能会遇到下面的错误：&lt;/p>
+&lt;pre>&lt;code>go get your.gitlab.com/pkg/example: module your.gitlab.com/pkg/example:
+reading https://goproxy.cn/your.gitlab.com/pkg/example/@v/list: 404 Not Found
+&lt;/code>&lt;/pre>&lt;p>这是因为代理服务不可能访问到我们的私有代码仓库，所以报错 404。而且，就算使用上文提到的 &lt;code>ssh&lt;/code> 鉴权也不行。&lt;/p>
+&lt;p>&lt;strong>Go 1.13 后可以设置 &lt;code>GONOPROXY&lt;/code> 这个环境变量来指定不使用代理的域名，支持逗号分隔多个值。&lt;/strong>&lt;/p>
+&lt;h2 id="gonosumdb">GONOSUMDB&lt;/h2>
+&lt;p>go mod 需要对下载后的依赖包进行 checksum 校验，当你的 git 仓库是开放的话没问题，但是如果是不可访问的私有仓库，甚至在公司内网。
+很可能出现校验失败的错误：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">get &lt;span class="s2">&amp;#34;your.gitlab.com/pkg/example&amp;#34;&lt;/span>: found meta tag get.metaImport&lt;span class="o">{&lt;/span>Prefix:&lt;span class="s2">&amp;#34;your.gitlab.com/pkg/example&amp;#34;&lt;/span>, VCS:&lt;span class="s2">&amp;#34;git&amp;#34;&lt;/span>, RepoRoot:&lt;span class="s2">&amp;#34;https://your.gitlab.com/pkg/example.git&amp;#34;&lt;/span>&lt;span class="o">}&lt;/span> at //your.gitlab.com/pkg/example?go-get&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+verifying your.gitlab.com/pkg/example@v0.0.0: your.gitlab.com/pkg/example@v0.0.0: reading https://sum.golang.org/lookup/your.gitlab.com/pkg/example@v0.0.0: &lt;span class="m">410&lt;/span> Gone
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>和代理一样，我们的私有仓库对 sum.golang.org 是不可见的，所以肯定没办法执行安全校验。&lt;/p>
+&lt;p>&lt;strong>同样的在 Go 1.13 后可以设置 &lt;code>GONOSUMDB&lt;/code> 环境变量指定跳过校验的的域名，支持逗号分割多个值。&lt;/strong>&lt;/p>
+&lt;h2 id="goprivate">GOPRIVATE&lt;/h2>
+&lt;p>最后 Go 1.13 还引入的 &lt;code>GOPRIVATE&lt;/code> 环境变量，可以说设置后一劳永逸，能自动跳过 proxy server 和 校验检查，
+这个变量值也支持逗号分割，可以填写多个值，如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">GOPRIVATE&lt;/span>&lt;span class="o">=&lt;/span>*.corp.example.com,your.gitlab.com
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>当然，设置 &lt;code>GOPRIVATE&lt;/code> 之后，还可以在通过 &lt;code>GONOPROXY&lt;/code> 和 &lt;code>GONOSUMDB&lt;/code> 来单独进行控制，&lt;/p>
+&lt;p>不过需要注意下 &lt;code>GOPRIVATE&lt;/code> 失效的问题，&lt;/p>
+&lt;p>举个例子，如果公司内部有私有仓库：&lt;code>your.corp.com&lt;/code>，如果这样设置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">GOPRIVATE&lt;/span>&lt;span class="o">=&lt;/span>your.corp.com
+&lt;span class="nv">GOPROXY&lt;/span>&lt;span class="o">=&lt;/span>https://goproxy.cn
+&lt;span class="nv">GONOPROXY&lt;/span>&lt;span class="o">=&lt;/span>none
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因为 &lt;code>GONOPROXY&lt;/code> 的值是 &lt;code>none&lt;/code>，那么用户还是会从 &lt;code>GOPROXY&lt;/code> 的地址下载所有私有和共有的仓库，
+此时可能还是会报错，&lt;code>GONOSUMDB&lt;/code> 同理，大家注意一下这个问题。&lt;/p></description><category domain="https://h1z3y3.me/tags/golang/">Golang</category></item><item><title>如何在 Go 中组织项目结构</title><link>https://h1z3y3.me/posts/how-i-structure-services-in-go/</link><guid isPermaLink="true">https://h1z3y3.me/posts/how-i-structure-services-in-go/</guid><pubDate>Wed, 12 May 2021 08:04:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>译者注：在翻译这篇文章之前，我自己其实对 Bob 大叔的 Clean Architecture 也做过一些研究，在项目中实践之后，
 也确确实实体验到了分层的魅力。在层与层之间将依赖进行隔离，各个层只关注自己本身的逻辑，
 所以能让开发者只关注本层的业务逻辑， 也更容易进行单元测试，无形中就提高了你代码的质量和可阅读性。
 我觉得如果你对自己的代码有追求，就一定要去学习一下 Clean Architecture。
