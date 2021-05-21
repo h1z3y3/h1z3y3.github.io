@@ -1,6 +1,6 @@
 ---
 title: go module 使用 gitlab 私有仓库
-date: 2021-05-21 12:33:52
+date: 2021-05-20 12:33:52
 tags: [Golang]
 ---
 
