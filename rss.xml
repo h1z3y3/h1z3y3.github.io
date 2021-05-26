@@ -1,4 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Fri, 21 May 2021 09:50:53 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>go module 使用 gitlab 私有仓库</title><link>https://h1z3y3.me/posts/go-private-git-repository/</link><guid isPermaLink="true">https://h1z3y3.me/posts/go-private-git-repository/</guid><pubDate>Thu, 20 May 2021 12:33:52 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h1 id="go-module-使用-gitlab-私有仓库">Go Module 使用 gitlab 私有仓库&lt;/h1>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.83.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Wed, 26 May 2021 02:06:56 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>Golang unescape values in html templates</title><link>https://h1z3y3.me/posts/go-html-template-script-unescape/</link><guid isPermaLink="true">https://h1z3y3.me/posts/go-html-template-script-unescape/</guid><pubDate>Tue, 25 May 2021 21:56:44 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>While using values in a html template, my colleague faced a problem that the values in &lt;code>&amp;lt;script&amp;gt;&lt;/code> tags are all escaped.
+So the template developer can not use the values in javascript. It just looks like this:&lt;/p>
+&lt;pre>&lt;code>// ...
+&amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
+[&amp;amp;#34;news&amp;amp;#34;,&amp;amp;#34;comedy&amp;amp;#34;,&amp;amp;#34;cartoon&amp;amp;#34;,&amp;amp;#34;tech&amp;amp;#34;,&amp;amp;#34;travelling&amp;amp;#34;,&amp;amp;#34;fashion&amp;amp;#34;,&amp;amp;#34;photograph&amp;amp;#34;,&amp;amp;#34;household&amp;amp;#34;,&amp;amp;#34;movies&amp;amp;#34;,&amp;amp;#34;foods&amp;amp;#34;,&amp;amp;#34;military&amp;amp;#34;,&amp;amp;#34;health&amp;amp;#34;,&amp;amp;#34;test&amp;amp;#34;]
+&amp;lt;/script&amp;gt;
+// ...
+&lt;/code>&lt;/pre>&lt;p>I tried to find out the reason. So I copied the template values in other HTML tags rather than in &lt;code>&amp;lt;script&amp;gt;&lt;/code>.
+It rendered correctly, and was not escaped:&lt;/p>
+&lt;pre>&lt;code>// ...
+&amp;lt;div&amp;gt;
+[&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;]
+&amp;lt;div&amp;gt;
+// ...
+&lt;/code>&lt;/pre>&lt;p>First, I found some reasons like this, they said using &lt;code>json.Encoder&lt;/code> rather than using &lt;code>json.Marshal()&lt;/code> directly.
+So I can &lt;code>SetEscapeHTML(false)&lt;/code>. This is the example code:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="kd">func&lt;/span> &lt;span class="nf">toRawJson&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">v&lt;/span> &lt;span class="kd">interface&lt;/span>&lt;span class="p">{})&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kt">error&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">buf&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nb">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">bytes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Buffer&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nx">enc&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">json&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">NewEncoder&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">buf&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nx">enc&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SetEscapeHTML&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">enc&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Encode&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">v&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">strings&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">TrimSuffix&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">buf&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">String&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="s">&amp;#34;\n&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="kc">nil&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>I tried, but it didn&amp;rsquo;t work either.&lt;/p>
+&lt;p>Now, let&amp;rsquo;s think about for a moment. Only &lt;code>&amp;lt;script&amp;gt;&lt;/code> has the problem, but other html tags not.
+So if I could say the value is actually correct, but the template rendered in wrong ?&lt;/p>
+&lt;p>I started google the problems about template render but not the wrong value.&lt;/p>
+&lt;p>Then I found the &lt;code>html/template&lt;/code> official document:&lt;/p>
+&lt;p>Let&amp;rsquo;s see its introduction: &lt;code>html/template&lt;/code> &lt;a href="https://golang.org/pkg/html/template/#hdr-Introduction">introduction&lt;/a>:&lt;/p>
+&lt;blockquote>
+&lt;p>This package wraps package text/template so you can share its template API
+to parse and execute HTML templates safely.&lt;/p>
+&lt;pre>&lt;code>tmpl, err := template.New(&amp;quot;name&amp;quot;).Parse(...)
+// Error checking elided
+err = tmpl.Execute(out, data)
+&lt;/code>&lt;/pre>&lt;p>If successful, tmpl will now be injection-safe. Otherwise,
+err is an error defined in the docs for ErrorCode.&lt;/p>
+&lt;p>HTML templates treat data values as plain text which should be encoded so they
+can be safely embedded in an HTML document.
+The escaping is contextual, so actions can appear within JavaScript, CSS, and URI contexts.
+The security model used by this package assumes that template authors are trusted,
+while Execute&amp;rsquo;s data parameter is not. More details are provided below.&lt;/p>
+&lt;p>Example&lt;/p>
+&lt;pre>&lt;code>import &amp;quot;text/template&amp;quot;
+...
+t, err := template.New(&amp;quot;foo&amp;quot;).Parse(`{{define &amp;quot;T&amp;quot;}}Hello, {{.}}!{{end}}`)
+err = t.ExecuteTemplate(out, &amp;quot;T&amp;quot;, &amp;quot;&amp;lt;script&amp;gt;alert('you have been pwned')&amp;lt;/script&amp;gt;&amp;quot;)
+&lt;/code>&lt;/pre>&lt;p>produces&lt;/p>
+&lt;pre>&lt;code>Hello, &amp;lt;script&amp;gt;alert('you have been pwned')&amp;lt;/script&amp;gt;!
+&lt;/code>&lt;/pre>&lt;p>but the contextual autoescaping in html/template&lt;/p>
+&lt;pre>&lt;code>import &amp;quot;html/template&amp;quot;
+...
+t, err := template.New(&amp;quot;foo&amp;quot;).Parse(`{{define &amp;quot;T&amp;quot;}}Hello, {{.}}!{{end}}`)
+err = t.ExecuteTemplate(out, &amp;quot;T&amp;quot;, &amp;quot;&amp;lt;script&amp;gt;alert('you have been pwned')&amp;lt;/script&amp;gt;&amp;quot;)
+&lt;/code>&lt;/pre>&lt;p>produces safe, escaped HTML output&lt;/p>
+&lt;pre>&lt;code>Hello, &amp;amp;lt;script&amp;amp;gt;alert(&amp;amp;#39;you have been pwned&amp;amp;#39;)&amp;amp;lt;/script&amp;amp;gt;!
+&lt;/code>&lt;/pre>&lt;/blockquote>
+&lt;p>\o//. Now we find out the reason, but how we resolve this problem ?&lt;/p>
+&lt;p>Maybe I can provide a template function to unescape the value.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-go" data-lang="go"> &lt;span class="nx">r&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">gin&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Default&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="nx">funcMap&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s">&amp;#34;unescapeHTML&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">s&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nx">template&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">HTML&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">template&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">HTML&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SetFuncMap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">funcMap&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then you can use it as below:&lt;/p>
+&lt;pre>&lt;code>&amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
+{{ .channel_data | unescapeHTML }}
+&amp;lt;/script&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>Finally, it works.&lt;/p>
+&lt;pre>&lt;code>// ...
+&amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
+[&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;]
+&amp;lt;/script&amp;gt;
+// ...
+&lt;/code>&lt;/pre></description><category domain="https://h1z3y3.me/tags/golang/">Golang</category></item><item><title>go module 使用 gitlab 私有仓库</title><link>https://h1z3y3.me/posts/go-private-git-repository/</link><guid isPermaLink="true">https://h1z3y3.me/posts/go-private-git-repository/</guid><pubDate>Thu, 20 May 2021 12:33:52 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;h1 id="go-module-使用-gitlab-私有仓库">Go Module 使用 gitlab 私有仓库&lt;/h1>
 &lt;p>包管理是 Go 一直被诟病做的不好的功能。在 1.11 之前，go get 缺乏对依赖包版本管理和 reproducible build 的支持。
 当时在 Go 社区当时诞生了许多好用的工具，比如 glide，dep 等。
 在 1.11 版本之后， Go 引入了 Go Module，再也没有 GOPATH 的限制，你可以随意在任何路径写项目，但是此时对私有仓库的支持还不是很好。
