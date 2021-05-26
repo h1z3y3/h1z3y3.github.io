@@ -1,5 +1,5 @@
 ---
-title: Golang unescape values in html templates
+title: Unescape values in html templates using golang
 date: 2021-05-25 21:56:44
 tags: [Golang]
 ---
