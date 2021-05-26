@@ -1,21 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-05-26T02:06:56+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.83.1">Hugo</generator><entry><title type="text">Golang unescape values in html templates</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/go-html-template-script-unescape/"/><id>https://h1z3y3.me/posts/go-html-template-script-unescape/</id><updated>2021-05-25T21:56:44+00:00</updated><published>2021-05-25T21:56:44+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">While using values in a html template, my colleague faced a problem that the values in &amp;lt;script&amp;gt; tags are all escaped. So the template developer can not use the values in javascript. It just looks like this:
-// ... &amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt; [&amp;amp;#34;news&amp;amp;#34;,&amp;amp;#34;comedy&amp;amp;#34;,&amp;amp;#34;cartoon&amp;amp;#34;,&amp;amp;#34;tech&amp;amp;#34;,&amp;amp;#34;travelling&amp;amp;#34;,&amp;amp;#34;fashion&amp;amp;#34;,&amp;amp;#34;photograph&amp;amp;#34;,&amp;amp;#34;household&amp;amp;#34;,&amp;amp;#34;movies&amp;amp;#34;,&amp;amp;#34;foods&amp;amp;#34;,&amp;amp;#34;military&amp;amp;#34;,&amp;amp;#34;health&amp;amp;#34;,&amp;amp;#34;test&amp;amp;#34;] &amp;lt;/script&amp;gt; // ... I tried to find out the reason. So I copied the template values in other HTML tags rather than in &amp;lt;script&amp;gt;. It rendered correctly, and was not escaped:
-// ... &amp;lt;div&amp;gt; [&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;] &amp;lt;div&amp;gt; // ... First, I found some reasons like this, they said using json.Encoder rather than using json.Marshal() directly. So I can SetEscapeHTML(false).</summary><content type="html">&lt;p>While using values in a html template, my colleague faced a problem that the values in &lt;code>&amp;lt;script&amp;gt;&lt;/code> tags are all escaped.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title type="text">东隅已逝/桑榆非晚</title><subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle><updated>2021-05-26T02:21:00+00:00</updated><id>https://h1z3y3.me/</id><link rel="alternate" type="text/html" href="https://h1z3y3.me/"/><link rel="self" type="application/atom+xml" href="https://h1z3y3.me/atom.xml"/><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><generator uri="https://gohugo.io/" version="0.83.1">Hugo</generator><entry><title type="text">Golang unescape values in html templates</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/go-html-template-script-unescape/"/><id>https://h1z3y3.me/posts/go-html-template-script-unescape/</id><updated>2021-05-25T21:56:44+00:00</updated><published>2021-05-25T21:56:44+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">While using values in a html template, my colleague faced a problem that the values in &amp;lt;script&amp;gt; tags were all escaped. So the template developer can not use the values in javascript. It just looks like this:
+// ... &amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt; [&amp;amp;#34;news&amp;amp;#34;,&amp;amp;#34;comedy&amp;amp;#34;,&amp;amp;#34;cartoon&amp;amp;#34;,&amp;amp;#34;tech&amp;amp;#34;,&amp;amp;#34;travelling&amp;amp;#34;,&amp;amp;#34;fashion&amp;amp;#34;,&amp;amp;#34;photograph&amp;amp;#34;,&amp;amp;#34;household&amp;amp;#34;,&amp;amp;#34;movies&amp;amp;#34;,&amp;amp;#34;foods&amp;amp;#34;,&amp;amp;#34;military&amp;amp;#34;,&amp;amp;#34;health&amp;amp;#34;,&amp;amp;#34;test&amp;amp;#34;] &amp;lt;/script&amp;gt; // ... I tried to find out the reason. So I copied the template values in other HTML tags, like &amp;lt;div&amp;gt;, rather than in &amp;lt;script&amp;gt;. It rendered correctly, and was not escaped:
+// ... &amp;lt;div&amp;gt; [&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;] &amp;lt;div&amp;gt; // ... I start google the reason. At first, I thought it was because the values given template is wrong, it had already been escaped before the page rendering.</summary><content type="html">&lt;p>While using values in a html template, my colleague faced a problem that the values in &lt;code>&amp;lt;script&amp;gt;&lt;/code> tags were all escaped.
 So the template developer can not use the values in javascript. It just looks like this:&lt;/p>
 &lt;pre>&lt;code>// ...
 &amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
 [&amp;amp;#34;news&amp;amp;#34;,&amp;amp;#34;comedy&amp;amp;#34;,&amp;amp;#34;cartoon&amp;amp;#34;,&amp;amp;#34;tech&amp;amp;#34;,&amp;amp;#34;travelling&amp;amp;#34;,&amp;amp;#34;fashion&amp;amp;#34;,&amp;amp;#34;photograph&amp;amp;#34;,&amp;amp;#34;household&amp;amp;#34;,&amp;amp;#34;movies&amp;amp;#34;,&amp;amp;#34;foods&amp;amp;#34;,&amp;amp;#34;military&amp;amp;#34;,&amp;amp;#34;health&amp;amp;#34;,&amp;amp;#34;test&amp;amp;#34;]
 &amp;lt;/script&amp;gt;
 // ...
-&lt;/code>&lt;/pre>&lt;p>I tried to find out the reason. So I copied the template values in other HTML tags rather than in &lt;code>&amp;lt;script&amp;gt;&lt;/code>.
+&lt;/code>&lt;/pre>&lt;p>I tried to find out the reason. So I copied the template values in other HTML tags, like &lt;code>&amp;lt;div&amp;gt;&lt;/code>, rather than in &lt;code>&amp;lt;script&amp;gt;&lt;/code>.
 It rendered correctly, and was not escaped:&lt;/p>
 &lt;pre>&lt;code>// ...
 &amp;lt;div&amp;gt;
 [&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;]
 &amp;lt;div&amp;gt;
 // ...
-&lt;/code>&lt;/pre>&lt;p>First, I found some reasons like this, they said using &lt;code>json.Encoder&lt;/code> rather than using &lt;code>json.Marshal()&lt;/code> directly.
-So I can &lt;code>SetEscapeHTML(false)&lt;/code>. This is the example code:&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>I start google the reason. At first, I thought it was because the values given template is wrong,
+it had already been escaped before the page rendering.
+I found some reasons in google, they said using &lt;code>json.NewEncoder()&lt;/code> instead of using &lt;code>json.Marshal()&lt;/code>.
+So it can &lt;code>SetEscapeHTML(false)&lt;/code> before encode the data. This is the example code:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -42,8 +44,8 @@ So I can &lt;code>SetEscapeHTML(false)&lt;/code>. This is the example code:&lt;/
 &lt;span class="p">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>I tried, but it didn&amp;rsquo;t work either.&lt;/p>
-&lt;p>Now, let&amp;rsquo;s think about for a moment. Only &lt;code>&amp;lt;script&amp;gt;&lt;/code> has the problem, but other html tags not.
+&lt;/div>&lt;p>I tried it, but didn&amp;rsquo;t work either.&lt;/p>
+&lt;p>Now, let&amp;rsquo;s think about for a moment. Only &lt;code>&amp;lt;script&amp;gt;&lt;/code> has the problem, but other html tags did not.
 So if I could say the value is actually correct, but the template rendered in wrong ?&lt;/p>
 &lt;p>I started google the problems about template render but not the wrong value.&lt;/p>
 &lt;p>Then I found the &lt;code>html/template&lt;/code> official document:&lt;/p>
@@ -76,8 +78,8 @@ err = t.ExecuteTemplate(out, &amp;quot;T&amp;quot;, &amp;quot;&amp;lt;script&amp
 &lt;/code>&lt;/pre>&lt;p>produces safe, escaped HTML output&lt;/p>
 &lt;pre>&lt;code>Hello, &amp;amp;lt;script&amp;amp;gt;alert(&amp;amp;#39;you have been pwned&amp;amp;#39;)&amp;amp;lt;/script&amp;amp;gt;!
 &lt;/code>&lt;/pre>&lt;/blockquote>
-&lt;p>\o//. Now we find out the reason, but how we resolve this problem ?&lt;/p>
-&lt;p>Maybe I can provide a template function to unescape the value.&lt;/p>
+&lt;p>🥳🥳🥳 Now we find out the reason, but how we solve this problem?&lt;/p>
+&lt;p>Maybe I could provide a function to unescape the value in templates.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
@@ -96,17 +98,20 @@ err = t.ExecuteTemplate(out, &amp;quot;T&amp;quot;, &amp;quot;&amp;lt;script&amp
 &lt;span class="nx">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">SetFuncMap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">funcMap&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Then you can use it as below:&lt;/p>
-&lt;pre>&lt;code>&amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
+&lt;/div>&lt;p>Then you can use it in templates as below:&lt;/p>
+&lt;pre>&lt;code>// ...
+&amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
 {{ .channel_data | unescapeHTML }}
 &amp;lt;/script&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>Finally, it works.&lt;/p>
+// ...
+&lt;/code>&lt;/pre>&lt;p>Finally, it works.
+When the template is loaded, the value won&amp;rsquo;t be escaped!&lt;/p>
 &lt;pre>&lt;code>// ...
 &amp;lt;script type=&amp;quot;text/json&amp;quot; id=&amp;quot;channel&amp;quot; ch=&amp;quot;recommend&amp;quot; tk=&amp;quot;&amp;quot;&amp;gt;
 [&amp;quot;news&amp;quot;,&amp;quot;comedy&amp;quot;,&amp;quot;cartoon&amp;quot;,&amp;quot;tech&amp;quot;,&amp;quot;travelling&amp;quot;,&amp;quot;fashion&amp;quot;,&amp;quot;photograph&amp;quot;,&amp;quot;household&amp;quot;,&amp;quot;movies&amp;quot;,&amp;quot;foods&amp;quot;,&amp;quot;military&amp;quot;,&amp;quot;health&amp;quot;,&amp;quot;test&amp;quot;]
 &amp;lt;/script&amp;gt;
 // ...
-&lt;/code>&lt;/pre></content><category scheme="https://h1z3y3.me/tags/golang/" term="Golang" label="Golang"/></entry><entry><title type="text">go module 使用 gitlab 私有仓库</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/go-private-git-repository/"/><id>https://h1z3y3.me/posts/go-private-git-repository/</id><updated>2021-05-20T12:33:52+00:00</updated><published>2021-05-20T12:33:52+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">Go Module 使用 gitlab 私有仓库 包管理是 Go 一直被诟病做的不好的功能。在 1.11 之前，go get 缺乏对依赖包版本管理和 reproducible build 的支持。 当时在 Go 社区当时诞生了许多好用的工具，比如 glide，dep 等。 在 1.11 版本之后， Go 引入了 Go Modu……</summary><content type="html">&lt;h1 id="go-module-使用-gitlab-私有仓库">Go Module 使用 gitlab 私有仓库&lt;/h1>
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Hope this helps you!! Thanks for reading :)&lt;/strong>&lt;/p></content><category scheme="https://h1z3y3.me/tags/golang/" term="Golang" label="Golang"/></entry><entry><title type="text">go module 使用 gitlab 私有仓库</title><link rel="alternate" type="text/html" href="https://h1z3y3.me/posts/go-private-git-repository/"/><id>https://h1z3y3.me/posts/go-private-git-repository/</id><updated>2021-05-20T12:33:52+00:00</updated><published>2021-05-20T12:33:52+00:00</published><author><name>h1z3y3</name><uri>https://h1z3y3.me/</uri><email>gmzhaoyang@gmail.com</email></author><rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights><summary type="html">Go Module 使用 gitlab 私有仓库 包管理是 Go 一直被诟病做的不好的功能。在 1.11 之前，go get 缺乏对依赖包版本管理和 reproducible build 的支持。 当时在 Go 社区当时诞生了许多好用的工具，比如 glide，dep 等。 在 1.11 版本之后， Go 引入了 Go Modu……</summary><content type="html">&lt;h1 id="go-module-使用-gitlab-私有仓库">Go Module 使用 gitlab 私有仓库&lt;/h1>
 &lt;p>包管理是 Go 一直被诟病做的不好的功能。在 1.11 之前，go get 缺乏对依赖包版本管理和 reproducible build 的支持。
 当时在 Go 社区当时诞生了许多好用的工具，比如 glide，dep 等。
 在 1.11 版本之后， Go 引入了 Go Module，再也没有 GOPATH 的限制，你可以随意在任何路径写项目，但是此时对私有仓库的支持还不是很好。
