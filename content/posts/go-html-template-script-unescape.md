@@ -4,7 +4,7 @@ date: 2021-05-25 21:56:44
 tags: [Golang]
 ---
 
-While using values in a html template, my colleague faced a problem that the values in `<script>` tags are all escaped.
+While using values in a html template, my colleague faced a problem that the values in `<script>` tags were all escaped.
 So the template developer can not use the values in javascript. It just looks like this:
 
 ```
@@ -17,7 +17,7 @@ So the template developer can not use the values in javascript. It just looks li
 // ...
 ```
 
-I tried to find out the reason. So I copied the template values in other HTML tags rather than in `<script>`.
+I tried to find out the reason. So I copied the template values in other HTML tags, like `<div>`, rather than in `<script>`.
 It rendered correctly, and was not escaped: 
 
 ```
@@ -30,8 +30,10 @@ It rendered correctly, and was not escaped:
 // ...
 ```
 
-First, I found some reasons like this, they said using `json.Encoder` rather than using `json.Marshal()` directly. 
-So I can `SetEscapeHTML(false)`. This is the example code:
+I start google the reason. At first, I thought it was because the values given template is wrong, 
+it had already been escaped before the page rendering.
+I found some reasons in google, they said using `json.NewEncoder()` instead of using `json.Marshal()`. 
+So it can `SetEscapeHTML(false)` before encode the data. This is the example code:
 
 ```go
 func toRawJson(v interface{}) (string, error) {
@@ -46,9 +48,9 @@ func toRawJson(v interface{}) (string, error) {
 }
 ```
 
-I tried, but it didn't work either.
+I tried it, but didn't work either.
 
-Now, let's think about for a moment. Only `<script>` has the problem, but other html tags not. 
+Now, let's think about for a moment. Only `<script>` has the problem, but other html tags did not. 
 So if I could say the value is actually correct, but the template rendered in wrong ?
 
 I started google the problems about template render but not the wrong value.
@@ -105,9 +107,9 @@ Let's see its introduction: `html/template` [introduction](https://golang.org/pk
 > ```
 
 
-\\o//. Now we find out the reason, but how we resolve this problem ?
+🥳🥳🥳 Now we find out the reason, but how we solve this problem?
 
-Maybe I can provide a template function to unescape the value.
+Maybe I could provide a function to unescape the value in templates.
 
 ```go 
 	r := gin.Default()
@@ -119,15 +121,18 @@ Maybe I can provide a template function to unescape the value.
 	r.SetFuncMap(funcMap)
 ```
 
-Then you can use it as below:
+Then you can use it in templates as below:
 
 ```
+// ...
 <script type="text/json" id="channel" ch="recommend" tk="">
     {{ .channel_data | unescapeHTML }}
 </script>
+// ...
 ```
 
 Finally, it works.
+When the template is loaded, the value won't be escaped!
 
 ```
 // ... 
@@ -139,6 +144,4 @@ Finally, it works.
 // ...
 ```
 
-
-
-
+**Hope this helps you!! Thanks for reading :)**
