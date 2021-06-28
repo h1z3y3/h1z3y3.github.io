@@ -98,6 +98,7 @@ MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mes
 主要内容是 golang 1.14 版本前后两种不同的抢占式调度模型，深入源码，通过编译后的汇编进行讲解，挺有深度的，之后会再仔细研究这方面的知识。
 
 ![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/GMP.png)
+![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/tangping.png)
 
 ## 《K8S私有云建设实践》
 
