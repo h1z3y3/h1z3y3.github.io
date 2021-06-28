@@ -29,7 +29,7 @@ Grab 公司在分享《Improving Go Backend Developer Experience In Grab》中�
 
 大会的 PPT，可以在这里获取：[https://mp.weixin.qq.com/s/734ac0JeQtSrzcmZ1-so8w](https://mp.weixin.qq.com/s/734ac0JeQtSrzcmZ1-so8w)
 
-##《Generic in go》
+## 《Generic in go》
 
 大会第一场是跟老外连线，但是直播断断续续，我这蹩脚听力更听不懂了，体验不太好。但是针对泛型这个主题，在社区中有很多讨论，
 也有一些争议，主要是泛型的支持者，和认为加入泛型破坏 golang 简单特性的反对者，
@@ -37,14 +37,14 @@ Grab 公司在分享《Improving Go Backend Developer Experience In Grab》中�
 proposal [https://blog.golang.org/generics-proposal](https://blog.golang.org/generics-proposal) [https://github.com/golang/go/issues/43651](https://github.com/golang/go/issues/43651) 。
 而且，golang 官方已经在 master 分支实现了泛型，鸟窝也在早些时间给出了 Go 泛型尝鲜的方法：https://colobu.com/2021/03/22/try-go-generic/
 
-##《MOSN在云原生的探索和实践》
+## 《MOSN在云原生的探索和实践》
 
 MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mesh 集成，也具备南北向流量代理的功能。
 不得不佩服 MOSN 对 CGO 的调研和使用深度，其中介绍的 MOE（Mosn on Envoy）使得 MOSN 底层网络具备 C 同等处理能力的同时，
 又能使上层业务可高效复用 MOSN 的处理能力及 Golang 高效的开发效率。
 
 
-##《浅谈全链路可观测性：从应用到Go Runtime》
+## 《浅谈全链路可观测性：从应用到Go Runtime》
 
 我个人认为很不错的分享，由浅入深带领大家如何 Trace In Go Runtime，PPT 风格还有讲解风格都很有趣。
 最终的实现方式我也没想到和我最近翻译的这篇文章相关
