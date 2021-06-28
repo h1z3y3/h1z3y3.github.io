@@ -4,8 +4,6 @@ date: 2021-06-28 09:01:11
 tags: [Golang]
 ---
 
-# GopherChina 2021 北京
-
 ![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/logo.png)
 
 托 [团队 leader](https://fukun.org/) 的福，白嫖了今年 GopherCon China 的票，和历届大会相比，第二天分了两个分会场，
