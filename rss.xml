@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.84.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Mon, 28 Jun 2021 10:30:12 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>2021 北京 Gopher 大会</title><link>https://h1z3y3.me/posts/gophercon-china-2021/</link><guid isPermaLink="true">https://h1z3y3.me/posts/gophercon-china-2021/</guid><pubDate>Mon, 28 Jun 2021 09:01:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/logo.png" alt="">&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.84.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Mon, 28 Jun 2021 10:32:01 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>2021 北京 Gopher 大会</title><link>https://h1z3y3.me/posts/gophercon-china-2021/</link><guid isPermaLink="true">https://h1z3y3.me/posts/gophercon-china-2021/</guid><pubDate>Mon, 28 Jun 2021 09:01:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/logo.png" alt="">&lt;/p>
 &lt;p>托 &lt;a href="https://fukun.org/">团队 leader&lt;/a> 的福，白嫖了今年 GopherCon China 的票，和历届大会相比，第二天分了两个分会场，
 分享不同的内容，参会者可以根据个人兴趣自行选择参加。&lt;/p>
 &lt;p>然而不得不说，本次和之前几次的分享安排相比，多了一些针对自己公司产品的推广。
@@ -17,17 +17,17 @@ Grab 公司在分享《Improving Go Backend Developer Experience In Grab》中�
 &lt;/ul>
 &lt;p>我针对我自己参加的几个分享谈一谈我自己的一些感受和思考。&lt;/p>
 &lt;p>大会的 PPT，可以在这里获取：&lt;a href="https://mp.weixin.qq.com/s/734ac0JeQtSrzcmZ1-so8w">https://mp.weixin.qq.com/s/734ac0JeQtSrzcmZ1-so8w&lt;/a>&lt;/p>
-&lt;p>##《Generic in go》&lt;/p>
+&lt;h2 id="generic-in-go">《Generic in go》&lt;/h2>
 &lt;p>大会第一场是跟老外连线，但是直播断断续续，我这蹩脚听力更听不懂了，体验不太好。但是针对泛型这个主题，在社区中有很多讨论，
 也有一些争议，主要是泛型的支持者，和认为加入泛型破坏 golang 简单特性的反对者，
 不过今年官方正式提出将泛型特性加入 Go 的
 proposal &lt;a href="https://blog.golang.org/generics-proposal">https://blog.golang.org/generics-proposal&lt;/a> &lt;a href="https://github.com/golang/go/issues/43651">https://github.com/golang/go/issues/43651&lt;/a> 。
 而且，golang 官方已经在 master 分支实现了泛型，鸟窝也在早些时间给出了 Go 泛型尝鲜的方法：https://colobu.com/2021/03/22/try-go-generic/&lt;/p>
-&lt;p>##《MOSN在云原生的探索和实践》&lt;/p>
+&lt;h2 id="mosn在云原生的探索和实践">《MOSN在云原生的探索和实践》&lt;/h2>
 &lt;p>MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mesh 集成，也具备南北向流量代理的功能。
 不得不佩服 MOSN 对 CGO 的调研和使用深度，其中介绍的 MOE（Mosn on Envoy）使得 MOSN 底层网络具备 C 同等处理能力的同时，
 又能使上层业务可高效复用 MOSN 的处理能力及 Golang 高效的开发效率。&lt;/p>
-&lt;p>##《浅谈全链路可观测性：从应用到Go Runtime》&lt;/p>
+&lt;h2 id="浅谈全链路可观测性从应用到go-runtime">《浅谈全链路可观测性：从应用到Go Runtime》&lt;/h2>
 &lt;p>我个人认为很不错的分享，由浅入深带领大家如何 Trace In Go Runtime，PPT 风格还有讲解风格都很有趣。
 最终的实现方式我也没想到和我最近翻译的这篇文章相关
 （ &lt;a href="https://h1z3y3.me/posts/demysitifying-pprof-labels-with-go/">深入剖析 Golang Pprof 标签&lt;/a> ），
