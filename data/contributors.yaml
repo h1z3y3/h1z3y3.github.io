@@ -1,0 +1,30 @@
+contributors:
+  - display_name: "敬维"
+    avatar: "https://avatars.githubusercontent.com/u/8602043?v=4"
+    profile: "https://jingwei.link/"
+    description: "Stay hungry, stay foolish. 以认真的态度做完美的事情。"
+
+  - display_name: "老张的博客"
+    avatar: "https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/static/avatars/laozhang.jpg"
+    profile: "http://www.xtgxiso.com/"
+    description: "我是从事LAMP平台下互联网项目的老兵(张素杰)。"
+
+  - display_name: ""
+    avatar: "https://avatars.githubusercontent.com/u/1439346?v=4"
+    profile: "https://fukun.org/"
+    description: "DigDeeply，专业IT。技能：架构设计、PHP、PHP扩展、Golang、OpenResty、Python、K8S ..."
+
+  - display_name: "JerryQu 的小站"
+    avatar: "https://avatars.githubusercontent.com/u/285369?v=4"
+    profile: "https://imququ.com/"
+    description: "屈屈，专职前端开发，目前在中国北京。这个博客是我随便记录东西的地方。"
+
+  - display_name: "Cuetorials"
+    avatar: "https://avatars.githubusercontent.com/u/1390600"
+    profile: "https://github.com/NReilingh"
+    description: "CUE 是一门逻辑语言，专门用于处理配置、结构、数据并执行它们。"
+
+  - display_name: "卡拉云"
+    avatar: "https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/static/avatars/kalacloud.jpeg"
+    profile: "https://kalacloud.com/"
+    description: "可以帮你快速搭建后台系统，多有时间专注核心业务，提升企业运营效率。"

@@ -1,0 +1,63 @@
+{{ define "contributor-card" }}
+
+<style>
+
+    .card {
+        padding-bottom: 10px;
+    }
+
+    .card img {
+        border-radius: 10px;
+        margin: 5px;
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .card a {
+        border: 0;
+        box-shadow: none;
+        display: block;
+        background: none;
+    }
+
+    .card a:hover, .card a:focus {
+        color: #4d85f1;
+        background: none;
+    }
+
+    .card .card-text {
+        line-height: 1.7;
+    }
+
+</style>
+
+<div class="card-group row">
+
+    {{ range .contributors }}
+
+    <div class="card col-md-6">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{.avatar}}" class="card-img-top">
+            </div>
+
+            <a href="{{.profile}}" class="col-md-8" target="_blank">
+                <div class="card-body">
+                    <p class="card-text" style="margin: 0;">
+                        {{ .display_name }}
+                    </p>
+                    <p class="card-text" style="margin: 0; color: #777; font-size: 0.8em;">
+                        {{ .description }}
+                    </p>
+                </div>
+
+            </a>
+        </div>
+    </div>
+
+    {{ end }}
+</div>
+{{ end }}
+
+{{ template "contributor-card" $.Site.Data.contributors }}
+

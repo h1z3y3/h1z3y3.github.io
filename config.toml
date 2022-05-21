@@ -236,6 +236,13 @@ uglyURLs = false
         post = "rss"
 
     [[menu.main]]
+        name = "Links"
+        weight = 5
+        url = "/links/"
+        post = "link"
+        pre = "internal"
+
+    [[menu.main]]
         weight = 6
         identifier = "theme-switcher"
     [[menu.main]]
