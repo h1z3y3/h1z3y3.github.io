@@ -1281,11 +1281,11 @@ uglyURLs = false
     # Custom Footer (Markdown supported)
     customFooter = ""
 
-    displayBusuanziSiteUVAndPV = false
-    busuanziSiteUVText = "Site UV"
-    busuanziSiteUVIcon = "user"
-    busuanziSitePVText = "Site PV"
-    busuanziSitePVIcon = "eye"
+    displayBusuanziSiteUVAndPV = true
+    busuanziSiteUVText = "UV"
+    busuanziSiteUVIcon = ""
+    busuanziSitePVText = "PV"
+    busuanziSitePVIcon = ""
     # Note: render only in production
     #       environment
     #       Leave it empty("") if you
