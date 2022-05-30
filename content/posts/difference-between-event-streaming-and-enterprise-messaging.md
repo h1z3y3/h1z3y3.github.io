@@ -1,5 +1,5 @@
 ---
-title: 业务消息传递(AKA Enterprise Messaging) 和 事件流（AKA Event Streaming）的区别
+title: 业务消息传递和事件流的区别
 date: 2022-05-29 23:31:00
 tags: [Message,Event Streaming,MQ,Kafka]
 ---
