@@ -1,13 +1,87 @@
 {{ define "timelines" }}
 
+<style>
+.entries {
+    background-color:#000;
+    width: 100%;
+    margin:auto;
+    position: relative;
+    left:-5px;
+    overflow: auto;
+}
+.entries:before {
+    content: '';
+    position: absolute;
+    top:0px;
+    left:50%;
+    bottom:0px;
+    transform:translateX(-50%);
+    width:4px;
+    background-color:#fff;
+}
+.entry {
+    width:calc(50% - 80px);
+    float:left; 
+    height: 100%;
+    padding:20px;
+    clear:both;
+    text-align:right;
+}
+.entry .body {
+    color:#aaa;
+}
+.entry .body p {
+    line-height:1.4em;
+}
+.entry:not(:first-child) {
+    margin-top:-60px;
+}
+.entry .title {
+    font-size:32px;
+    margin-bottom:12px;
+    position: relative;
+    color:#fff;
+}
+.entry .title:before {
+    content: '';
+    position: absolute;
+    width:8px;
+    height:8px;
+    border:4px solid #ffffff;
+    background-color:#1D1D1D;
+    border-radius:100%;
+    top:50%;
+    transform:translateY(-50%);
+    right:-68px;
+    z-index:1000;
+}
+.entry .title .big:before {
+    width:24px;
+    height:24px;
+    transform:translate(8px,-50%);
+}
+.entry:nth-child(2n) {
+    text-align:left;
+    float:right;
+}
+.entry:nth-child(2n) .title:before {
+    left:-68px;    
+}
+.entry:nth-child(2n) .title .big:before {
+    transform:translate(-8px,-50%);
+}
+</style>
 
-{{ range . }}
-
-    {{ .content }}
-
-    <br>
-
-{{ end }}
+<div class="entries">
+    {{ range . }}
+    <div class="entry">
+        <div class="title">{{ .timestamp }}</div>
+        <div class="body">
+            <p>{{ .content }}</p>
+        </div>
+    </div>
+    {{ end }}
+</div>
 
 {{ end }}
 
