@@ -127,7 +127,3 @@
 {{ range sort $.Site.Data.emo "date" "desc" }}
 {{ template "emo" .list }}
 {{ end }}
-
-{{ if .Site.Params.enableGitalk }}
-    <div id="gitalk-container"></div>
-{{ end }}
