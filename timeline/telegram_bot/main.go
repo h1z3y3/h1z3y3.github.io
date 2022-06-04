@@ -30,6 +30,7 @@ var (
 	}
 )
 
+// response 返回机器人回复的内容
 func response(message *tgbotapi.Message) (string, error) {
 
 	if _, ok := adminList[message.From.UserName]; !ok {
@@ -77,6 +78,7 @@ func response(message *tgbotapi.Message) (string, error) {
 	return response, nil
 }
 
+// pollRobot 是轮询方式的机器人实现
 func pollRobot() {
 	bot, err := tgbotapi.NewBotAPI(telegramBotToken)
 	if err != nil {
@@ -103,6 +105,7 @@ func pollRobot() {
 	}
 }
 
+// webhookRobot 是 webhook 方式的机器人实现
 func webhookRobot() {
 	bot, err := tgbotapi.NewBotAPI(telegramBotToken)
 	if err != nil {
