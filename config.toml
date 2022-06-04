@@ -198,6 +198,14 @@ uglyURLs = false
 #         pre = "internal"
 #         post = "home"
 
+
+    [[menu.main]]
+        name = "EMO"
+        weight = 1
+        url = "/emo/"
+        post = "icons"
+        pre = "internal"
+
     [[menu.main]]
         url = "/posts/"
         name = "Posts"
@@ -243,13 +251,13 @@ uglyURLs = false
         pre = "internal"
 
     [[menu.main]]
-        weight = 6
+        weight = 10
         identifier = "theme-switcher"
     [[menu.main]]
-        weight = 7
+        weight = 11
         identifier = "lang-switcher"
     [[menu.main]]
-        weight = 8
+        weight = 5
         identifier = "search"
         post = "search"
 
@@ -447,7 +455,7 @@ uglyURLs = false
     ######################################
     # List Page
 
-    listWidth = "38"
+    listWidth = "45"
     # Note: you can leave it empty("") to
     #       fallback to the default value: 42
     #       Unit: em
@@ -776,7 +784,7 @@ uglyURLs = false
     #            supported
 
     # The content width of the post
-    postWidth = 40
+    postWidth = 45
     # Note: you can leave it empty("") to
     #       fallback to the default value: 42
     #       Unit: em
