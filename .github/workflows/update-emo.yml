@@ -2,7 +2,7 @@ name: update emo
 
 on:
   schedule:
-    - cron: '05 16 * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   deploy:
