@@ -19,6 +19,11 @@ links:
     profile: "https://imququ.com/"
     description: "屈屈，专职前端开发，目前在中国北京。这个博客是我随便记录东西的地方。"
 
+  - display_name: "ankang.icu"
+    avatar: "https://avatars.githubusercontent.com/u/35864786?v=4"
+    profile: "http://ankang.icu/"
+    description: "一个菜鸟的学习记录，专注前端开发"
+
   - display_name: "Cuetorials"
     avatar: "https://avatars.githubusercontent.com/u/1390600"
     profile: "https://cuetorials.com/contribute/"
