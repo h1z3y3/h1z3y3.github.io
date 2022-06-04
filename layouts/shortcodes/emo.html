@@ -1,0 +1,133 @@
+<style type="text/css">
+    .single .main-inner {
+        width: 50em;
+    }
+
+    .emo .year {
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .emo .entries {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: -5px;
+        overflow: auto;
+    }
+
+    .emo .entries:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 4px;
+        background-color: var(--color-contrast-medium);
+    }
+
+    .emo .entry {
+        width: calc(50% - 65px);
+        float: left;
+        height: 100%;
+        padding: 20px 5px 20px 5px;
+        clear: both;
+        text-align: right;
+    }
+
+    .emo .entry .body {
+        margin-bottom: 3em;
+    }
+
+    .emo .entry .body p {
+        line-height: 1.4em;
+        color: var(--color-contrast-high);
+    }
+
+    .emo .entry:not(:first-child) {
+        margin-top: -60px;
+    }
+
+    .emo .entry .title {
+        font-size: 20px;
+        position: relative;
+        color: var(--color-contrast-higher);
+    }
+
+    .emo .entry .title:before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border: 4px solid #ffffff;
+        border-color: var(--color-contrast-high);
+        background-color: var(--color-bg);
+        border-radius: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -68px;
+        z-index: 1000;
+    }
+
+    .emo .entry .title .time {
+        font-size: 15px;
+        color: var(--color-contrast-medium);
+    }
+
+    .emo .entry .title .big:before {
+        width: 24px;
+        height: 24px;
+        transform: translate(8px, -50%);
+    }
+
+    .emo .entry:nth-child(2n) {
+        text-align: left;
+        float: right;
+    }
+
+    .emo .entry:nth-child(2n) .title:before {
+        left: -68px;
+    }
+
+    .emo .entry:nth-child(2n) .title .big:before {
+        transform: translate(-8px, -50%);
+    }
+</style>
+
+{{ define "emo" }}
+
+<div class="emo">
+
+    {{ range first 1 . }}
+    <div class="year">
+        {{ dateFormat "2006 Jan" .timestamp }}
+    </div>
+    {{ end }}
+
+    <div class="entries">
+
+        {{ range sort . "timestamp" "desc"}}
+        <div class="entry">
+            <div class="title">
+                <span>{{ dateFormat "Mon 01/02" .timestamp }}</span>
+                <span class="time">{{ dateFormat "15:04" .timestamp }}</span>
+            </div>
+            <div class="body">
+                <p>{{ .content }}</p>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+</div>
+{{ end }}
+
+
+{{ range sort $.Site.Data.emo "date" "desc" }}
+{{ template "emo" .list }}
+{{ end }}
+
+{{ if .Site.Params.enableGitalk }}
+    <div id="gitalk-container"></div>
+{{ end }}

@@ -15,7 +15,7 @@ theme = "meme"
 newContentEditor = ""
 
 # i18n
-defaultContentLanguage = "zh"
+defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 # Pluralize titles in lists?
@@ -986,9 +986,9 @@ uglyURLs = false
     # Site brand
     fontFamilySiteBrand = ""
     # Menu bar
-    fontFamilyMenu = ""
+    fontFamilyMenu = "'Lato', sans-serif"
     # Post title, post subtitle, list title, year and month title of the list, related posts title, previous/next post title, header of table, term/name in a definition list
-    fontFamilyTitle = "'Lato', sans-serif"
+    fontFamilyTitle = "'Merriweather', 'Lato', sans-serif"
     # Headings, toc title
     fontFamilyHeadings = "'Lato', sans-serif"
     # Code, superscript, post meta info, post updated badge, post gitinfo, minimal footer, busuanzi site view counter
@@ -1002,7 +1002,7 @@ uglyURLs = false
     # Footer
     fontFamilyFooter = ""
     # Body
-    fontFamilyBody = "'Lato', serif"
+    fontFamilyBody = "'Merriweather', 'Lato', sans-serif"
 
     # Embed fonts link
     fontsLink = ""
