@@ -55,7 +55,9 @@ func response(message *tgbotapi.Message) (string, error) {
 	case "delete":
 		response, err = tm.Delete(message.CommandArguments())
 	case "read":
-		response, err = tm.Read(message.CommandArguments())
+		var list timeline.Timelines
+		list, err = tm.Read(message.CommandArguments())
+		response = list.String()
 	case "list_table":
 		response, err = tm.ListTable()
 	case "drop_table":
@@ -84,6 +86,8 @@ func pollRobot() {
 	if err != nil {
 		log.Panic(err)
 	}
+
+	bot.Request(tgbotapi.DeleteWebhookConfig{})
 
 	bot.Debug = true
 
@@ -158,6 +162,10 @@ func main() {
 	})
 
 	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
 
 	fmt.Println("Listening on :" + port)
 

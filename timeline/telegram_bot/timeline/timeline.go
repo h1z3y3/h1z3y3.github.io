@@ -17,7 +17,39 @@ type timeline struct {
 }
 
 type Timeline struct {
-	Content string
+	Id        string `json:"id"`
+	Content   string `json:"content"`
+	Timestamp int64  `json:"date"`
+}
+
+func (t Timeline) String() string {
+	bs, _ := json.MarshalIndent(t, "", "  ")
+	return string(bs)
+}
+
+func (t Timeline) ToDBRecord() dbIface.Record {
+	return dbIface.Record{
+		"content":   t.Content,
+		"timestamp": time.Now().Unix(),
+	}
+}
+
+func parseDBRecord(record dbIface.Record) Timeline {
+	return Timeline{
+		Id:        record["id"].(string),
+		Content:   record["content"].(string),
+		Timestamp: int64(record["timestamp"].(float64)),
+	}
+}
+
+type Timelines []Timeline
+
+func (ts Timelines) String() string {
+	var list []string
+	for _, v := range ts {
+		list = append(list, v.String())
+	}
+	return strings.Join(list, "\n")
 }
 
 func NewTimeline(db dbIface.DB, table string) *timeline {
@@ -27,15 +59,12 @@ func NewTimeline(db dbIface.DB, table string) *timeline {
 	}
 }
 
-func (t *timeline) Add(record Timeline) (string, error) {
-	if record.Content == "" {
+func (t *timeline) Add(tm Timeline) (string, error) {
+	if tm.Content == "" {
 		return "", errors.New("content is required")
 	}
 
-	id, err := t.db.Create(t.table, dbIface.Record{
-		"content":   record.Content,
-		"timestamp": time.Now().Unix(),
-	})
+	id, err := t.db.Create(t.table, tm.ToDBRecord())
 
 	if err != nil {
 		return "", errors.Wrap(err, "create record error")
@@ -46,7 +75,7 @@ func (t *timeline) Add(record Timeline) (string, error) {
 		return id, errors.Wrap(err, "get record count error")
 	}
 
-	return fmt.Sprintf("id: %s\ncontent: %s\ncount: %d", id, record.Content, count), nil
+	return fmt.Sprintf("id: %s\ncontent: %s\ncount: %d", id, tm.Content, count), nil
 }
 
 func (t *timeline) Delete(id string) (string, error) {
@@ -82,20 +111,19 @@ func (t *timeline) Delete(id string) (string, error) {
 	return fmt.Sprintf("deleted id: %s\ncount: %d", id, count), nil
 }
 
-func (t *timeline) Read(query string) (string, error) {
+func (t *timeline) Read(query string) (Timelines, error) {
 	records, err := t.db.Read(t.table, query)
 	if err != nil {
-		return "", errors.Wrap(err, "get records error")
+		return []Timeline{}, errors.Wrap(err, "get records error")
 	}
 
-	result := []string{}
+	result := []Timeline{}
 
 	for _, v := range records {
-		b, _ := json.MarshalIndent(v, "", "  ")
-		result = append(result, string(b))
+		result = append(result, parseDBRecord(v))
 	}
 
-	return strings.Join(result, "\n"), nil
+	return result, nil
 }
 
 func (t *timeline) ListTable() (string, error) {
