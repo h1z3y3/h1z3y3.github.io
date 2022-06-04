@@ -1,0 +1,17 @@
+{{ define "timelines" }}
+
+
+{{ range . }}
+
+    {{ .content }}
+
+    <br>
+
+{{ end }}
+
+{{ end }}
+
+{{ range $.Site.Data.timelines }}
+    {{ template "timelines" . }}
+{{ end }}
+
