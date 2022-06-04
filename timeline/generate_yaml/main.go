@@ -32,8 +32,9 @@ func main() {
 	}
 
 	bs, err := yaml.Marshal(map[string]interface{}{
-		"date": list[0].Timestamp,
-		"list": list,
+		"update": time.Now().String(),
+		"date":   list[0].Timestamp,
+		"list":   list,
 	})
 
 	fmt.Println("yaml:")
