@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"time"
@@ -21,7 +22,6 @@ func main() {
 	tm := timeline.NewTimeline(db, table)
 
 	list, err := tm.Read("")
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -31,15 +31,34 @@ func main() {
 		return
 	}
 
+	// read local file
+	filename := fmt.Sprintf("../../data/emo/emo%s.yaml", table)
+	f, err := os.Open(filename)
+	if err == nil {
+		bs, _ := ioutil.ReadAll(f)
+
+		res := make(map[string]interface{})
+
+		err := yaml.Unmarshal(bs, &res)
+
+		if err != nil {
+			log.Println("yaml unmarshal error:", err)
+		} else {
+			oldLen := len(res["list"].([]interface{}))
+
+			if oldLen == len(list) {
+				fmt.Println("no-update")
+				return
+			}
+		}
+	}
+
 	bs, err := yaml.Marshal(map[string]interface{}{
 		"date": list[0].Timestamp,
 		"list": list,
 	})
 
-	fmt.Println("yaml:")
-	fmt.Println(string(bs))
-
-	f, err := os.Create(fmt.Sprintf("../../data/emo/emo%s.yaml", table))
+	f, err = os.Create(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -49,4 +68,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("success")
 }
