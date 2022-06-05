@@ -1,9 +1,9 @@
 name: update emo
 
 on:
-  push:
-    branches:
-      - emo-update
+  schedule:
+    - cron: '0/5 * * * *'
+
 jobs:
   update_emo:
     runs-on: ubuntu-18.04
@@ -29,6 +29,7 @@ jobs:
         with:
           github_token: ${{ secrets.TG_GITHUB_TOKEN }}
           branch: emo-update
+
   update_page:
     if: needs.update_emo.outputs.update_result == 'success'
     runs-on: ubuntu-18.04
