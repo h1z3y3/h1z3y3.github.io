@@ -22,7 +22,7 @@ jobs:
           args: make run
 
       - name: Commit & Push changes
-        uses: actions-js/push@master
+        uses: actions-js/push@develop
         with:
           github_token: ${{ secrets.TG_GITHUB_TOKEN }}
           branch: master
