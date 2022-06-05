@@ -17,9 +17,10 @@ type timeline struct {
 }
 
 type Timeline struct {
-	Id        string `json:"id"`
-	Content   string `json:"content"`
-	Timestamp int64  `json:"date"`
+	Id        string   `json:"id"`
+	Content   string   `json:"content"`
+	Timestamp int64    `json:"date"`
+	Images    []string `json:"images"`
 }
 
 func (t Timeline) String() string {
@@ -29,17 +30,28 @@ func (t Timeline) String() string {
 
 func (t Timeline) ToDBRecord() dbIface.Record {
 	return dbIface.Record{
+		"id":        t.Id,
 		"content":   t.Content,
 		"timestamp": time.Now().Unix(),
+		"images":    t.Images,
 	}
 }
 
 func parseDBRecord(record dbIface.Record) Timeline {
-	return Timeline{
+	t := Timeline{
 		Id:        record["id"].(string),
 		Content:   record["content"].(string),
 		Timestamp: int64(record["timestamp"].(float64)),
 	}
+
+	if v, ok := record["images"]; ok {
+		images := v.([]interface{})
+		for _, img := range images {
+			t.Images = append(t.Images, img.(string))
+		}
+	}
+
+	return t
 }
 
 type Timelines []Timeline
@@ -76,6 +88,19 @@ func (t *timeline) Add(tm Timeline) (string, error) {
 	}
 
 	return fmt.Sprintf("id: %s\ncontent: %s\ncount: %d", id, tm.Content, count), nil
+}
+
+func (t *timeline) Update(tm Timeline) error {
+	if tm.Id == "" {
+		return errors.New("id is required!")
+	}
+
+	err := t.db.Update(t.table, tm.ToDBRecord())
+	if err != nil {
+		return errors.Wrap(err, "update record error")
+	}
+
+	return nil
 }
 
 func (t *timeline) Delete(id string) (string, error) {
@@ -124,6 +149,18 @@ func (t *timeline) Read(query string) (Timelines, error) {
 	}
 
 	return result, nil
+}
+
+func (t *timeline) LastTimeline(query string) (Timeline, error) {
+	list, err := t.Read(query)
+	if err != nil {
+		return Timeline{}, err
+	}
+	if len(list) == 0 {
+		return Timeline{}, errors.New("404")
+	}
+
+	return list[len(list)-1], nil
 }
 
 func (t *timeline) ListTable() (string, error) {

@@ -124,6 +124,37 @@ func (d *db) Create(table string, record dbIface.Record) (string, error) {
 	return gjson.Get(resp, "id").Str, nil
 }
 
+func (d *db) Update(table string, record dbIface.Record) error {
+	data := map[string]interface{}{
+		"table":  d.tableName(table),
+		"record": record,
+	}
+
+	req, err := httplib.Post(getDBApi("/Update")).
+		Header("Authorization", "Bearer "+d.apiKey).
+		Header("Content-Type", "application/json").
+		SetTimeout(2*time.Second, 5*time.Second).
+		Retries(3).RetryDelay(1 * time.Second).
+		JSONBody(data)
+
+	if err != nil {
+		return err
+	}
+
+	resp, err := req.String()
+
+	if err != nil {
+		return err
+	}
+
+	code := gjson.Get(resp, "code").Uint()
+	if code > 0 {
+		return errors.New(resp)
+	}
+
+	return nil
+}
+
 func (d *db) Count(table string) (uint64, error) {
 	data := map[string]interface{}{
 		"table": d.tableName(table),
