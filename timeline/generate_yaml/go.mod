@@ -2,7 +2,7 @@ module github.com/h1z3y3/h1z3y3.github.io/timeline/generate_yaml
 
 go 1.17
 
-require github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220604032658-9bbc8c463cbf
+require github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220605143754-3efb166f251e
 
 require (
 	github.com/beego/beego/v2 v2.0.3 // indirect
