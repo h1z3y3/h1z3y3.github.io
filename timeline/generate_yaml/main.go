@@ -32,24 +32,9 @@ func main() {
 	}
 
 	bs, err := yaml.Marshal(map[string]interface{}{
-		"update": time.Now().String(),
-		"date":   list[0].Timestamp,
-		"list":   list,
+		"date": list[0].Timestamp,
+		"list": list,
 	})
-
-	fmt.Println("yaml:")
-	fmt.Println(string(bs))
-
-	f, err := os.Create(fmt.Sprintf("../../data/emo/emo%s.yaml", table))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	_, err = f.Write(bs)
-
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	fmt.Println("yaml:")
 	fmt.Println(string(bs))
