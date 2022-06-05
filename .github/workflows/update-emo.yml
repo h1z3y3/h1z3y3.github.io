@@ -1,9 +1,9 @@
 name: update emo
 
 on:
-  push:
-    branches:
-      - emo-update
+  schedule:
+    - cron: '0/5 * * * *'
+
 jobs:
   update_emo:
     runs-on: ubuntu-18.04
