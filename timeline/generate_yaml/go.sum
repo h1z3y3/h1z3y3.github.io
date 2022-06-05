@@ -212,8 +212,8 @@ github.com/grpc-ecosystem/go-grpc-middleware v1.0.1-0.20190118093823-f849b5445de
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
 github.com/grpc-ecosystem/grpc-gateway v1.9.5/go.mod h1:vNeuVxBJEsws4ogUvrchl83t/GYV9WGTSLVdBhOQFDY=
 github.com/grpc-ecosystem/grpc-gateway v1.16.0/go.mod h1:BDjrQk3hbvj6Nolgz8mAMFbcEtjT1g+wF4CSlocrBnw=
-github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220605143754-3efb166f251e h1:FivE3iYnyS0CPTu3QAMJNlpxBzpUAVBJPExGZv+0FU4=
-github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220605143754-3efb166f251e/go.mod h1:gV6pCTFFGVxh320Zpe77tBFOCG3gBT8sAnc2zqgzoA0=
+github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220605151053-55becc199724 h1:ET2Zvtft4fETWixz6MrHOBJlUm7DVIeNwqmozzMpIeY=
+github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot v0.0.0-20220605151053-55becc199724/go.mod h1:gV6pCTFFGVxh320Zpe77tBFOCG3gBT8sAnc2zqgzoA0=
 github.com/hashicorp/consul/api v1.3.0/go.mod h1:MmDNSzIMUjNpY/mQ398R4bk2FnqQLoPndWW5VkKPlCE=
 github.com/hashicorp/consul/sdk v0.3.0/go.mod h1:VKf9jXwCTEY1QZP2MOLRhb5i/I/ssyNV1vwHyQBF0x8=
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=

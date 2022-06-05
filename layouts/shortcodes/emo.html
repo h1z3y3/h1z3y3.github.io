@@ -37,7 +37,7 @@
     }
 
     .emo .entry .body {
-        margin-bottom: 3em;
+        margin-bottom: 2em;
     }
 
     .emo .entry .body p {
@@ -156,8 +156,16 @@
             <div class="body">
                 <p>{{ .content }}</p>
                 <div class="img-box">
+                    {{ $imageLen := .images | len  }}
+                    {{ $maxWidth := 30 }}
+                    {{ if eq $imageLen 1 }}
+                        {{ $maxWidth = 95 }}
+                    {{ else if eq $imageLen 2 }}
+                        {{ $maxWidth = 45 }}
+                    {{ end }}
+
                     {{ range .images }}
-                    <img style="max-width: 30%;" src="{{ . }}" class="img-thumbnail img-item" alt="">
+                    <img style="max-width: {{ $maxWidth }}%;" src="{{ . }}" class="img-thumbnail img-item" alt="">
                     {{ end }}
                 </div>
             </div>
