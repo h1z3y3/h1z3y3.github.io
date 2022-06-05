@@ -6,7 +6,33 @@ on:
       - master
 
 jobs:
+  update_emo:
+    runs-on: ubuntu-18.04
+    outputs:
+      update_result: ${{ steps.update.outputs.update_result }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: emo-update
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - name: update
+        id: update
+        uses: cedrickring/golang-action@1.6.0
+        env:
+          PROJECT_PATH: "./timeline/generate_yaml"
+          TG_M3O_TOKEN: ${{ secrets.TG_M3O_TOKEN }}
+        with:
+          args: echo "::set-output name=update_result::$(/usr/local/go/bin/go build -o app && ./app)"
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.TG_GITHUB_TOKEN }}
+          branch: emo-update
+
   deploy:
+    needs: update_emo
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
