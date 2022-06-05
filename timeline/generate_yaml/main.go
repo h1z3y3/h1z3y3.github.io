@@ -51,4 +51,17 @@ func main() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("yaml:")
+	fmt.Println(string(bs))
+
+	f, err := os.Create(fmt.Sprintf("../../data/emo/emo%s.yaml", table))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = f.Write(bs)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }

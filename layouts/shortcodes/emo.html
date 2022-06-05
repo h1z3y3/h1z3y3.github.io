@@ -43,6 +43,7 @@
     .emo .entry .body p {
         line-height: 1.4em;
         color: var(--color-contrast-high);
+        text-align: justify;
     }
 
     .emo .entry:not(:first-child) {
@@ -67,7 +68,7 @@
         top: 50%;
         transform: translateY(-50%);
         right: -68px;
-        z-index: 1000;
+        z-index: 1;
     }
 
     .emo .entry .title .time {
@@ -93,6 +94,45 @@
     .emo .entry:nth-child(2n) .title .big:before {
         transform: translate(-8px, -50%);
     }
+    .img-box{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+    .emo .entry:nth-child(2n) .img-box {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .img-box .img-item{
+        max-width: 30%;
+        margin: 0 5px 5px 0;
+    }
+    @media screen and (max-width: 900px){
+        .emo .year {
+            text-align: left;
+        }
+        .emo .entries:before {
+            left: 5%;
+        }
+        .emo .entry {
+            width: calc(95% - 30px);
+            float: right;
+            text-align: left;
+        }
+        .emo .entry .title:before {
+            left: -33px;
+        }
+        .emo .entry:nth-child(2n) .title:before {
+        left: -33px;
+        }
+        .img-box{
+            flex-direction: row;
+        }
+    }
+
 </style>
 
 {{ define "emo" }}
@@ -101,7 +141,7 @@
 
     {{ range first 1 . }}
     <div class="year">
-        {{ dateFormat "2006 Jan" .timestamp }}
+        {{ dateFormat "Jan 2006" .timestamp }}
     </div>
     {{ end }}
 
@@ -115,6 +155,11 @@
             </div>
             <div class="body">
                 <p>{{ .content }}</p>
+                <div class="img-box">
+                    {{ range .images }}
+                    <img style="max-width: 30%;" src="{{ . }}" class="img-thumbnail img-item" alt="">
+                    {{ end }}
+                </div>
             </div>
         </div>
         {{ end }}
