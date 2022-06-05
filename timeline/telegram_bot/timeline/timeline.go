@@ -44,7 +44,7 @@ func parseDBRecord(record dbIface.Record) Timeline {
 		Timestamp: int64(record["timestamp"].(float64)),
 	}
 
-	if v, ok := record["images"]; ok {
+	if v, ok := record["images"]; v != nil && ok {
 		images := v.([]interface{})
 		for _, img := range images {
 			t.Images = append(t.Images, img.(string))
