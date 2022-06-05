@@ -7,6 +7,8 @@ on:
 jobs:
   update_emo:
     runs-on: ubuntu-18.04
+    env:
+      TZ: Asia/Shanghai
     outputs:
       update_result: ${{ steps.update.outputs.update_result }}
     steps:
@@ -33,6 +35,8 @@ jobs:
   update_page:
     if: needs.update_emo.outputs.update_result == 'success'
     runs-on: ubuntu-18.04
+    env:
+      TZ: Asia/Shanghai
     needs: update_emo
     steps:
       - uses: actions/checkout@v2
