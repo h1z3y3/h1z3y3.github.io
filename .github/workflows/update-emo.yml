@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: emo-update
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
@@ -22,10 +23,10 @@ jobs:
           args: make run
 
       - name: Commit & Push changes
-        uses: actions-js/push@develop
+        uses: actions-js/push@master
         with:
           github_token: ${{ secrets.TG_GITHUB_TOKEN }}
-          branch: master
+          branch: emo-update
           
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
