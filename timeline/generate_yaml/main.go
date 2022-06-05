@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"time"
 
@@ -15,15 +16,38 @@ var (
 )
 
 func main() {
+	table := time.Now().Format("200601")
 	db := m3o.NewDB(m3oApiKey).WithTablePrefix("tg_tm")
-	tm := timeline.NewTimeline(db, time.Now().Format("200601"))
+	tm := timeline.NewTimeline(db, table)
 
 	list, err := tm.Read("")
 
-	fmt.Println("-->>", list, err)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	bs, err := yaml.Marshal(list)
+	if len(list) == 0 {
+		log.Println("empty list")
+		return
+	}
 
-	fmt.Println("-->>", string(bs))
+	bs, err := yaml.Marshal(map[string]interface{}{
+		"update": time.Now().String(),
+		"date":   list[0].Timestamp,
+		"list":   list,
+	})
 
+	fmt.Println("yaml:")
+	fmt.Println(string(bs))
+
+	f, err := os.Create(fmt.Sprintf("../../data/emo/emo%s.yaml", table))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = f.Write(bs)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }

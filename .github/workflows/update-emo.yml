@@ -1,0 +1,53 @@
+name: update emo
+
+on:
+  schedule:
+    - cron: '0/5 * * * *'
+
+jobs:
+  update-emo:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: update
+        uses: cedrickring/golang-action@1.6.0
+        env:
+          PROJECT_PATH: "./timeline/generate_yaml"
+          TG_M3O_TOKEN: ${{ secrets.TG_M3O_TOKEN }}
+        with:
+          args: make run
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.TG_GITHUB_TOKEN }}
+          branch: master
+          
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "./public/CNAME"
+          FILE_DATA: "h1z3y3.me"
+
+      - uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "./public/webpushr-sw.js"
+          FILE_DATA: "importScripts('https://cdn.webpushr.com/sw-server.min.js');"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
