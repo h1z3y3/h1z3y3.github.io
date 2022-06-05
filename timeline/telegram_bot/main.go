@@ -280,8 +280,8 @@ func init() {
 }
 
 func main() {
-	go pollRobot()
-	//go webhookRobot()
+	//go pollRobot()
+	go webhookRobot()
 
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Write([]byte("ok"))
