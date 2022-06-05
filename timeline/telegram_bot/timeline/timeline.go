@@ -77,7 +77,7 @@ func (t *timeline) Add(tm Timeline) (string, error) {
 		return "", errors.New("content is required")
 	}
 
-	tm.Id = fmt.Sprintf("%s", md5.Sum([]byte(fmt.Sprintf("%d", time.Now().UnixNano()))))
+	tm.Id = fmt.Sprintf("%x", md5.Sum([]byte(fmt.Sprintf("%d", time.Now().UnixNano()))))
 	id, err := t.db.Create(t.table, tm.ToDBRecord())
 
 	if err != nil {
