@@ -184,16 +184,16 @@
                 <p>{{ .content }}</p>
                 <div class="img-box">
                     {{ $imageLen := .images | len }}
-                    {{ $maxWidth := 30 }}
+                    {{ $maxWidth := 31 }}
                     {{ $maxHeight := 0 }}
                     {{ $paddingBottom := 30 }}
 
                     {{ if eq $imageLen 1 }}
-                        {{ $maxWidth = 95 }}
+                        {{ $maxWidth = 96 }}
                         {{ $paddingBottom = 0 }}
                         {{ $maxHeight = -1 }}
                     {{ else if eq $imageLen 2 }}
-                        {{ $maxWidth = 40 }}
+                        {{ $maxWidth = 48 }}
                         {{ $paddingBottom = 0 }}
                         {{ $maxHeight = -1 }}
                     {{ end }}
