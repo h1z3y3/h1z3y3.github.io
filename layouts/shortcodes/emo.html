@@ -200,7 +200,7 @@
                     
                     {{ range .images }}
                     <div class="img-item" style="width: {{ $maxWidth }}%; padding-bottom: {{ $paddingBottom }}%; {{if gt $maxHeight  -1}}height: {{$maxHeight}};{{end}};">
-                        <img src="{{ . }}" class="img-thumbnail " alt="">
+                        <img src="https://ghproxy.com/{{ . }}" class="img-thumbnail " alt="">
                     </div>
                     {{ end }}
                 </div>
