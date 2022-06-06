@@ -23,6 +23,12 @@ list:
   - https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/emo-update/images/photos/file_12.jpg
 - id: 2e7703cd7c3df82c0e90380c73dac72a
   content: "今天这天也太清爽了 \U0001F60D"
-  timestamp: 1654474835
+  timestamp: 1654480074
   images:
   - https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/emo-update/images/photos/file_13.jpg
+  - https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/emo-update/images/photos/file_14.jpg
+  - https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/emo-update/images/photos/file_14.jpg
+- id: 2e76cf155fd4427ad034615e649e49e0
+  content: 终于把一些兼容性、对齐、间距、左右都弄好了 ❤️
+  timestamp: 1654481281
+  images: []
