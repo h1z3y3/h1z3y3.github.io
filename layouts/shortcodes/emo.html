@@ -43,7 +43,7 @@
     .emo .entry .body p {
         line-height: 1.4em;
         color: var(--color-contrast-high);
-        text-align: justify;
+        text-align: right;
     }
 
     .emo .entry:not(:first-child) {
@@ -93,6 +93,10 @@
 
     .emo .entry:nth-child(2n) .title .big:before {
         transform: translate(-8px, -50%);
+    }
+
+    .emo .entry:nth-child(2n)  .body p {
+        text-align: left;
     }
 
     .img-box {
@@ -149,6 +153,11 @@
         .img-box {
             flex-direction: row;
         }
+
+        .emo .entry .body p {
+            text-align: left;
+        }
+
     }
 
 </style>
@@ -179,9 +188,8 @@
                     {{ $maxHeight := 0 }}
                     {{ $paddingBottom := 30 }}
 
-
                     {{ if eq $imageLen 1 }}
-                        {{ $maxWidth = 69 }}
+                        {{ $maxWidth = 95 }}
                         {{ $paddingBottom = 0 }}
                         {{ $maxHeight = -1 }}
                     {{ else if eq $imageLen 2 }}
