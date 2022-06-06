@@ -94,41 +94,59 @@
     .emo .entry:nth-child(2n) .title .big:before {
         transform: translate(-8px, -50%);
     }
-    .img-box{
+
+    .img-box {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         flex-direction: row-reverse;
     }
+
     .emo .entry:nth-child(2n) .img-box {
         display: flex;
         width: 100%;
         flex-wrap: wrap;
         flex-direction: row;
     }
-    .img-box .img-item{
-        max-width: 30%;
+
+    .img-box .img-item {
+        position: relative;
+        width: 30%;
         margin: 0 5px 5px 0;
+        overflow: hidden;
     }
-    @media screen and (max-width: 900px){
+
+    .img-box .img-item img {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media screen and (max-width: 900px) {
         .emo .year {
             text-align: left;
         }
+
         .emo .entries:before {
             left: 5%;
         }
+
         .emo .entry {
             width: calc(95% - 30px);
             float: right;
             text-align: left;
         }
+
         .emo .entry .title:before {
             left: -33px;
         }
+
         .emo .entry:nth-child(2n) .title:before {
-        left: -33px;
+            left: -33px;
         }
-        .img-box{
+
+        .img-box {
             flex-direction: row;
         }
     }
@@ -156,16 +174,26 @@
             <div class="body">
                 <p>{{ .content }}</p>
                 <div class="img-box">
-                    {{ $imageLen := .images | len  }}
+                    {{ $imageLen := .images | len }}
                     {{ $maxWidth := 30 }}
-                    {{ if eq $imageLen 1 }}
-                        {{ $maxWidth = 95 }}
-                    {{ else if eq $imageLen 2 }}
-                        {{ $maxWidth = 45 }}
-                    {{ end }}
+                    {{ $maxHeight := 0 }}
+                    {{ $paddingBottom := 30 }}
 
+
+                    {{ if eq $imageLen 1 }}
+                        {{ $maxWidth = 69 }}
+                        {{ $paddingBottom = 0 }}
+                        {{ $maxHeight = -1 }}
+                    {{ else if eq $imageLen 2 }}
+                        {{ $maxWidth = 40 }}
+                        {{ $paddingBottom = 0 }}
+                        {{ $maxHeight = -1 }}
+                    {{ end }}
+                    
                     {{ range .images }}
-                    <img style="max-width: {{ $maxWidth }}%;" src="{{ . }}" class="img-thumbnail img-item" alt="">
+                    <div class="img-item" style="width: {{ $maxWidth }}%; padding-bottom: {{ $paddingBottom }}%; {{if gt $maxHeight  -1}}height: {{$maxHeight}};{{end}};">
+                        <img src="{{ . }}" class="img-thumbnail " alt="">
+                    </div>
                     {{ end }}
                 </div>
             </div>
