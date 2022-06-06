@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -20,7 +21,7 @@ type timeline struct {
 type Timeline struct {
 	Id        string   `json:"id"`
 	Content   string   `json:"content"`
-	Timestamp int64    `json:"date"`
+	Timestamp int64    `json:"timestamp"`
 	Images    []string `json:"images"`
 }
 
@@ -56,6 +57,18 @@ func parseDBRecord(record dbIface.Record) Timeline {
 }
 
 type Timelines []Timeline
+
+func (ts Timelines) Swap(i, j int) {
+	ts[i], ts[j] = ts[j], ts[i]
+}
+
+func (ts Timelines) Less(i, j int) bool {
+	return ts[i].Timestamp < ts[j].Timestamp
+}
+
+func (ts Timelines) Len() int {
+	return len(ts)
+}
 
 func (ts Timelines) String() string {
 	var list []string
@@ -149,6 +162,8 @@ func (t *timeline) Read(query string) (Timelines, error) {
 	for _, v := range records {
 		result = append(result, parseDBRecord(v))
 	}
+
+	sort.Sort(Timelines(result))
 
 	return result, nil
 }

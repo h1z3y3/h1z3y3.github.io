@@ -50,6 +50,7 @@ func helpMessage() string {
 		"/add content: 添加时间线",
 		"/delete id: 删除",
 		"/read: 获取当前月份所有消息",
+		"/last: 获取当前月份最新消息",
 		"/list_table: 所有月份",
 		"/drop_table 202206: 删除某个月份",
 	}, "\n")
@@ -120,6 +121,10 @@ func responseCommand(message *tgbotapi.Message) (string, error) {
 		var list timeline.Timelines
 		list, err = tm.Read(message.CommandArguments())
 		response = list.String()
+	case "last":
+		var last timeline.Timeline
+		last, err = tm.LastTimeline("")
+		response = last.String()
 	case "list_table":
 		response, err = tm.ListTable()
 	case "drop_table":
@@ -280,8 +285,16 @@ func init() {
 }
 
 func main() {
-	//go pollRobot()
-	go webhookRobot()
+	env := os.Getenv("ENV")
+	fmt.Println("env: ", env)
+	if env == "" {
+		fmt.Println("env is empty, use prod")
+	}
+	if env == "dev" {
+		go pollRobot()
+	} else {
+		go webhookRobot()
+	}
 
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
 		writer.Write([]byte("ok"))
