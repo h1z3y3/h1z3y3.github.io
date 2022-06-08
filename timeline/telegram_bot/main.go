@@ -104,12 +104,12 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 		Branch:  github.String(branch),
 	}
 
-	resp, _, err := gh.Repositories.CreateFile(context.Background(), githubOwner, githubImageRepo, f.FilePath, cfg)
+	_, _, err = gh.Repositories.CreateFile(context.Background(), githubOwner, githubImageRepo, f.FilePath, cfg)
 	if err != nil {
 		return "", errors.Wrap(err, "upload to github error")
 	}
 
-	return resp.Content.GetDownloadURL(), nil
+	return f.FilePath, nil
 }
 
 // responseText 回复 文本消息
@@ -185,7 +185,7 @@ func response(message *tgbotapi.Message) {
 		photos := message.Photo
 		maxSizePhoto := photos[len(photos)-1]
 
-		downloadUrl, err := uploadPhotoToGithub(maxSizePhoto)
+		filePath, err := uploadPhotoToGithub(maxSizePhoto)
 		if err != nil {
 			_, _ = bot.Send(tgbotapi.NewMessage(chatId, MessageError+err.Error()))
 			return
@@ -198,7 +198,7 @@ func response(message *tgbotapi.Message) {
 			return
 		}
 
-		last.Images = append(last.Images, downloadUrl)
+		last.Images = append(last.Images, filePath)
 		err = tm.Update(last)
 		if err != nil {
 			_, _ = bot.Send(tgbotapi.NewMessage(chatId, MessageError+err.Error()))
