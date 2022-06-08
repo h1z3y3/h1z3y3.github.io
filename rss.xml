@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.100.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Wed, 08 Jun 2022 13:49:11 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>业务消息传递(AKA Enterprise Messaging) 和 事件流（AKA Event Streaming）的区别</title><link>https://h1z3y3.me/posts/event-streaming-vs-enterprise-messaging/</link><guid isPermaLink="true">https://h1z3y3.me/posts/event-streaming-vs-enterprise-messaging/</guid><pubDate>Sun, 29 May 2022 23:31:00 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>业务消息传递技术（AKA Enterprise Messaging），如 IBM MQ、RabbitMQ 和 ActiveMQ，在应用程序内和跨应用程序间提供异步通信技术已经很多年了。
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>东隅已逝/桑榆非晚</title><link>https://h1z3y3.me/</link><description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description><generator>Hugo 0.100.1 https://gohugo.io/</generator><language>en</language><managingEditor>gmzhaoyang@gmail.com (h1z3y3)</managingEditor><webMaster>gmzhaoyang@gmail.com (h1z3y3)</webMaster><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><lastBuildDate>Wed, 08 Jun 2022 13:53:55 +0800</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://h1z3y3.me/rss.xml"/><item><title>业务消息传递(AKA Enterprise Messaging) 和 事件流（AKA Event Streaming）的区别</title><link>https://h1z3y3.me/posts/event-streaming-vs-enterprise-messaging/</link><guid isPermaLink="true">https://h1z3y3.me/posts/event-streaming-vs-enterprise-messaging/</guid><pubDate>Sun, 29 May 2022 23:31:00 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>业务消息传递技术（AKA Enterprise Messaging），如 IBM MQ、RabbitMQ 和 ActiveMQ，在应用程序内和跨应用程序间提供异步通信技术已经很多年了。
 最近，事件流技术（AKA Event Streaming，如 Apache Kafka）越来越流行，它们也提供异步通信。&lt;/p>
 &lt;p>开发人员和架构师可能错误地认为在这两种技术之间进行切换的改动会很小。
 但在很多场景下，一旦深入了解并真正理解这两种技术存在的意义，以及它们适用的场景，
@@ -31,7 +31,7 @@
 &lt;h3 id="访问业务数据的场景">访问业务数据的场景&lt;/h3>
 &lt;p>在 &lt;em>访问业务数据&lt;/em> 这个场景下核心是发布/订阅（pub/sub）引擎，发布程序发布数据到 topic，然后订阅程序注册消费一个或多个 topic 以接收来自发布程序的数据。
 pub/sub 引擎负责分发以确保所有人都能收到想要的数据。它也充当抽象层，使发布和订阅程序解耦，使其具有不同的可用性。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/difference-between-events-and-messages/publish-subscribe-messaging.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/difference-between-events-and-messages/publish-subscribe-messaging.png" alt="">&lt;/p>
 &lt;p>pub/sub 引擎已经存在很多年了，例如首次发布 Apache Kafka 的 2011 年很多年之前， 1998 年发布的 JMS 1.0 规范就已经包含了这个能力。
 业务消息技术和事件流技术都提供 pub/sub 引擎，所以可能对于给定的项目到底用哪个更合适会产生混淆。&lt;/p>
 &lt;p>许多事件流技术提供 pub/sub 引擎但是也会包含一些其他适合特定场景的附加功能，
@@ -68,7 +68,7 @@ pub/sub 引擎负责分发以确保所有人都能收到想要的数据。它也
 &lt;p>当一个 topic 被 Apache Kafka 创建之后，会创建一个或多个 partition 。
 partition 是 Apache Kafka 基本架构的概念，并提供了扩展解决方案以处理大量事件的能力。
 每一个 partition 独自占用资源，通常建议将单个集群中的 topic 数量限制为几百或几千个。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/difference-between-events-and-messages/kafka-partition.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/difference-between-events-and-messages/kafka-partition.png" alt="">&lt;/p>
 &lt;p>业务消息传递 pub/sub 技术有一个更灵活的机制，topic 是可以分层的结构，比如 &lt;code>/travel/flights/airline/flight-number/seat&lt;/code>，
 每个层次都可以订阅。这让订阅程序可以更细粒度地选择事件。此外，业务消息传递 pub/sub 技术可以用于进一步细化感兴趣的事件。&lt;/p>
 &lt;p>订阅业务消息 pub/sub 系统的程序接收与他们无关的事件的可能性要小得多，
@@ -106,7 +106,7 @@ IBM MQ 提供原子性（Atomicity），一致性（Consistency），隔离性�
 &lt;h2 id="serverlesslow-code-和-iot-应用程序经验">Serverless、low-code 和 IoT 应用程序经验&lt;/h2>
 &lt;p>所以，为什么这一切对于 IoT 很重要？传统的 low-code 吹捧支持 IoT 应用程序的能力。但是他们仅限于调用打包的服务（比如 分析）和在应用程序中使用服务。&lt;/p>
 &lt;p>另一方面，serverless 对于 IoT 来说是非常好的架构，因为 event-based 工作方式在 serverless 环境运行的非常好。而且 event-based 是 IoT 应用程序的关键，因为来自传感器数据分析的事件可以实现更自然的、中断驱动的应用体验。这允许应用程序代表用户执行操作，从而最大限度地减少用户必须做的工作。&lt;/p>
-&lt;p>因此，如果您正在考虑 low-code ，请确保要仔细考虑系统的架构，而不是只关注拖放式 UI —— 它可以对最终产品产生重大影响。&lt;/p></description><category domain="https://h1z3y3.me/tags/low-code/">low-code</category><category domain="https://h1z3y3.me/tags/serverless/">serverless</category></item><item><title>2021 北京 Gopher 大会</title><link>https://h1z3y3.me/posts/gophercon-china-2021/</link><guid isPermaLink="true">https://h1z3y3.me/posts/gophercon-china-2021/</guid><pubDate>Mon, 28 Jun 2021 09:01:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/logo.png" alt="">&lt;/p>
+&lt;p>因此，如果您正在考虑 low-code ，请确保要仔细考虑系统的架构，而不是只关注拖放式 UI —— 它可以对最终产品产生重大影响。&lt;/p></description><category domain="https://h1z3y3.me/tags/low-code/">low-code</category><category domain="https://h1z3y3.me/tags/serverless/">serverless</category></item><item><title>2021 北京 Gopher 大会</title><link>https://h1z3y3.me/posts/gophercon-china-2021/</link><guid isPermaLink="true">https://h1z3y3.me/posts/gophercon-china-2021/</guid><pubDate>Mon, 28 Jun 2021 09:01:11 +0000</pubDate><author>gmzhaoyang@gmail.com (h1z3y3)</author><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright><description>&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/logo.png" alt="">&lt;/p>
 &lt;p>托 &lt;a href="https://fukun.org/">团队 leader&lt;/a> 的福，白嫖了今年 GopherCon China 的票，和历届大会相比，第二天分了两个分会场，
 分享不同的内容，参会者可以根据个人兴趣自行选择参加。&lt;/p>
 &lt;p>然而不得不说，本次和之前几次的分享安排相比，多了一些针对自己公司产品的推广。
@@ -140,10 +140,10 @@ proposal &lt;a href="https://blog.golang.org/generics-proposal">https://blog.gol
 最终的实现方式我也没想到和我最近翻译的这篇文章相关
 （ &lt;a href="https://h1z3y3.me/posts/demysitifying-pprof-labels-with-go/">深入剖析 Golang Pprof 标签&lt;/a> ），
 翻译时也没想到还能这么玩，当时听了确实也令人眼前一亮。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/profile-label.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/profile-label.png" alt="">&lt;/p>
 &lt;h2 id="improving-go-backend-developer-experience-in-grab">《Improving Go Backend Developer Experience in Grab》&lt;/h2>
 &lt;p>算是 Grab 公司的经验分享，关于整个软件的设计、开发和交付流程。和 Go 的关系并不是很大，很多经验经验也很难进行复制。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/build-times.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/build-times.png" alt="">&lt;/p>
 &lt;h2 id="利用夜莺扩展能力打造全方位监控体系">《利用夜莺扩展能力打造全方位监控体系》&lt;/h2>
 &lt;p>夜莺也是国内应用很火的监控系统，和 Prometheus 相比，有一些优势吧，比如有自身的告警平台，
 我们团队内部使用的基于 Prometheus 又另外开发的一套报警系统，目前也是开源，地址是 &lt;a href="https://github.com/Qihoo360/doraemon">https://github.com/Qihoo360/doraemon&lt;/a> 。
@@ -157,20 +157,20 @@ proposal &lt;a href="https://blog.golang.org/generics-proposal">https://blog.gol
 所以积累了一些 go module 的使用经验，所以整个分享听下来也比较轻松。我之前也写了一篇文章介绍如何让 go module
 使用 gitlab 私有仓库：&lt;a href="https://h1z3y3.me/posts/go-private-git-repository/">https://h1z3y3.me/posts/go-private-git-repository/&lt;/a> 。
 鸟窝还介绍了一些之前基本没用过的子命令，比如 &lt;code>go mod graph&lt;/code>、&lt;code>go mod why&lt;/code>，收获最大的是终于弄明白了 go module 拉取依赖包的策略。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/go-module-history.png" alt="">
-&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/go-module-xxx.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/go-module-history.png" alt="">
+&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/go-module-xxx.png" alt="">&lt;/p>
 &lt;h2 id="深入理解-bfe">《深入理解 BFE》&lt;/h2>
 &lt;p>也算是推广分享，介绍 BFE 产品，没什么干货。&lt;/p>
 &lt;p>我们 19 年也开源了一个七层转发的代理 &lt;a href="https://github.com/Qihoo360/HTTPSLayer">「HTTPS Layer」&lt;/a> ，
 和 BEF 相比，功能基本类似，甚至可以说 80% 相同。最大的区别就是 BFE 基于 Go 生态，我们基于 Openresty 生态。
 或许缺少了维护和宣传，我们并没有获得很高的关注，比较可惜。其实 HTTPS Layer 在我们公司内部也得到了生产环境的验证，
 做了一些分布式部署之后，目前我们单机房峰值 QPS 也能达到 10w QPS，当然还预留了一些 buffer 的情况下。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/why-bfe.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/why-bfe.png" alt="">&lt;/p>
 &lt;h2 id="go-语言的抢占式调度">《Go 语言的抢占式调度》&lt;/h2>
 &lt;p>曹大曹春晖的分享，很卷，讲解了 GMP 模型以及 Golang 的抢占式调度，干货又太干了，有点吸收不了。
 主要内容是 golang 1.14 版本前后两种不同的抢占式调度模型，深入源码，通过编译后的汇编进行讲解，挺有深度的，之后会再仔细研究这方面的知识。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/GMP.png" alt="">
-&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/tangping.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/GMP.png" alt="">
+&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/tangping.png" alt="">&lt;/p>
 &lt;h2 id="k8s私有云建设实践">《K8S私有云建设实践》&lt;/h2>
 &lt;p>公司的经验分享，不可复制，因为太客制化了。为了迎合公司现有平台，抛弃了很多 k8s 的原生用法，我个人觉得很鸡肋。
 针对私有云建设，360 其实走在比较前面，之前还开源了 k8s 的多集群管理平台
@@ -178,7 +178,7 @@ proposal &lt;a href="https://blog.golang.org/generics-proposal">https://blog.gol
 &lt;h2 id="go-如何助力企业进行微服务转型">《Go 如何助力企业进行微服务转型》&lt;/h2>
 &lt;p>go-zero 的维护者万俊峰分享，虽然经验之谈多一些，关于 Go 的讨论少，但是整体分享是好分享，收获很多，
 也有些之后可借鉴的点。不多赘述，PPT 可以下载下来看，里面挺详细。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/monolith-to-microservice.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/monolith-to-microservice.png" alt="">&lt;/p>
 &lt;h2 id="总结">总结&lt;/h2>
 &lt;p>从整体来看，本次 Gopher 大会还算成功，有些小插曲，但是瑕不掩瑜。只是希望之后能少一些对于产品的推广和介绍，
 对于产品功能完全可以去看各自产品的文档，我能想到他们和 Go 唯一相关的就是这个产品是 Go 写的。
@@ -1309,13 +1309,13 @@ reading https://goproxy.cn/your.gitlab.com/pkg/example/@v/list: 404 Not Found
 &lt;p>我们切换到 &lt;strong>Actions&lt;/strong> 选项卡，可以看到我们刚才提交的工作流已经执行了，
 同时在 &lt;strong>Code&lt;/strong> 选项卡，也帮我们创建好了一个 &lt;code>gh-pages&lt;/code> 的分支，
 切换之后发现这个 hugo 已经编译好的静态站点。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/actions-list.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/hugo-auto-deploy-github-with-actions/actions-list.png" alt="">&lt;/p>
 &lt;h2 id="修改-github-page-站点的默认分支">修改 Github Page 站点的默认分支&lt;/h2>
 &lt;p>没错，&lt;code>*.github.io&lt;/code> 的仓库，允许你自定义你要提供静态站点的分支，默认是 master，可以自定义为其他的&lt;/p>
 &lt;p>操作方法：&lt;/p>
 &lt;p>进入你的 &lt;code>*.github.io&lt;/code> 的仓库，点击项目的 &lt;code>Settings&lt;/code> ，并点击左侧的 &lt;code>Pages&lt;/code>，在这里你可以自定义一些你站点的配置，
 在这里你可以自己选择自己站点要使用的&lt;code>分支&lt;/code>以及&lt;code>目录&lt;/code>，我们这里切换为 &lt;code>gh-pages&lt;/code> 这个分支，并点击保存。&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/set-github-pages-default-branch.png" alt="">&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/h1z3y3/blog_images/master/hugo-auto-deploy-github-with-actions/set-github-pages-default-branch.png" alt="">&lt;/p>
 &lt;h2 id="检查">检查&lt;/h2>
 &lt;p>全部设置好之后，稍等几分钟生效后，通过浏览器访问 &lt;code>your.github.io&lt;/code>，就可以正常访问了，之后每次我们文章有更新，
 从 &lt;code>master&lt;/code> 分支提交之后，Github 就会通过 Actions 帮我们去编译然后发布在 &lt;code>gh-pages&lt;/code> 分支，十分方便。&lt;/p>
