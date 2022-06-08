@@ -106,7 +106,7 @@ Github Actions 更详细的使用可以从
 同时在 **Code** 选项卡，也帮我们创建好了一个 `gh-pages` 的分支，
 切换之后发现这个 hugo 已经编译好的静态站点。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/actions-list.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/hugo-auto-deploy-github-with-actions/actions-list.png)
 
 ## 修改 Github Page 站点的默认分支
 
@@ -117,7 +117,7 @@ Github Actions 更详细的使用可以从
 进入你的 `*.github.io` 的仓库，点击项目的 `Settings` ，并点击左侧的 `Pages`，在这里你可以自定义一些你站点的配置，
 在这里你可以自己选择自己站点要使用的`分支`以及`目录`，我们这里切换为 `gh-pages` 这个分支，并点击保存。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/hugo-auto-deploy-github-with-actions/set-github-pages-default-branch.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/hugo-auto-deploy-github-with-actions/set-github-pages-default-branch.png)
 
 ## 检查
 

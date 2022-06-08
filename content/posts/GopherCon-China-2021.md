@@ -4,7 +4,7 @@ date: 2021-06-28 09:01:11
 tags: [Golang]
 ---
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/logo.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/logo.png)
 
 托 [团队 leader](https://fukun.org/) 的福，白嫖了今年 GopherCon China 的票，和历届大会相比，第二天分了两个分会场，
 分享不同的内容，参会者可以根据个人兴趣自行选择参加。
@@ -51,13 +51,13 @@ MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mes
 （ [深入剖析 Golang Pprof 标签](https://h1z3y3.me/posts/demysitifying-pprof-labels-with-go/) ），
 翻译时也没想到还能这么玩，当时听了确实也令人眼前一亮。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/profile-label.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/profile-label.png)
 
 ## 《Improving Go Backend Developer Experience in Grab》
 
 算是 Grab 公司的经验分享，关于整个软件的设计、开发和交付流程。和 Go 的关系并不是很大，很多经验经验也很难进行复制。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/build-times.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/build-times.png)
 
 ## 《利用夜莺扩展能力打造全方位监控体系》
 
@@ -78,8 +78,8 @@ MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mes
 使用 gitlab 私有仓库：[https://h1z3y3.me/posts/go-private-git-repository/](https://h1z3y3.me/posts/go-private-git-repository/) 。
 鸟窝还介绍了一些之前基本没用过的子命令，比如 `go mod graph`、`go mod why`，收获最大的是终于弄明白了 go module 拉取依赖包的策略。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/go-module-history.png)
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/go-module-xxx.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/go-module-history.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/go-module-xxx.png)
 
 ## 《深入理解 BFE》
 
@@ -90,15 +90,15 @@ MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mes
 或许缺少了维护和宣传，我们并没有获得很高的关注，比较可惜。其实 HTTPS Layer 在我们公司内部也得到了生产环境的验证，
 做了一些分布式部署之后，目前我们单机房峰值 QPS 也能达到 10w QPS，当然还预留了一些 buffer 的情况下。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/why-bfe.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/why-bfe.png)
 
 ## 《Go 语言的抢占式调度》
 
 曹大曹春晖的分享，很卷，讲解了 GMP 模型以及 Golang 的抢占式调度，干货又太干了，有点吸收不了。
 主要内容是 golang 1.14 版本前后两种不同的抢占式调度模型，深入源码，通过编译后的汇编进行讲解，挺有深度的，之后会再仔细研究这方面的知识。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/GMP.png)
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/tangping.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/GMP.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/tangping.png)
 
 ## 《K8S私有云建设实践》
 
@@ -111,7 +111,7 @@ MOSN 是一款网络代理软件，可以与任何支持 xDS API 的 Service Mes
 go-zero 的维护者万俊峰分享，虽然经验之谈多一些，关于 Go 的讨论少，但是整体分享是好分享，收获很多，
 也有些之后可借鉴的点。不多赘述，PPT 可以下载下来看，里面挺详细。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/GopherCon-China-2021/monolith-to-microservice.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/GopherCon-China-2021/monolith-to-microservice.png)
 
 ## 总结
 

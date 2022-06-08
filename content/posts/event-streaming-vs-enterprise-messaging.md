@@ -48,7 +48,7 @@ tags: [Message,Event Streaming,MQ,Kafka]
 在 *访问业务数据* 这个场景下核心是发布/订阅（pub/sub）引擎，发布程序发布数据到 topic，然后订阅程序注册消费一个或多个 topic 以接收来自发布程序的数据。
 pub/sub 引擎负责分发以确保所有人都能收到想要的数据。它也充当抽象层，使发布和订阅程序解耦，使其具有不同的可用性。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/difference-between-events-and-messages/publish-subscribe-messaging.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/difference-between-events-and-messages/publish-subscribe-messaging.png)
 
 pub/sub 引擎已经存在很多年了，例如首次发布 Apache Kafka 的 2011 年很多年之前， 1998 年发布的 JMS 1.0 规范就已经包含了这个能力。
 业务消息技术和事件流技术都提供 pub/sub 引擎，所以可能对于给定的项目到底用哪个更合适会产生混淆。
@@ -90,7 +90,7 @@ pub/sub 引擎已经存在很多年了，例如首次发布 Apache Kafka 的 201
 partition 是 Apache Kafka 基本架构的概念，并提供了扩展解决方案以处理大量事件的能力。
 每一个 partition 独自占用资源，通常建议将单个集群中的 topic 数量限制为几百或几千个。
 
-![](https://raw.githubusercontent.com/h1z3y3/h1z3y3.github.io/master/images/difference-between-events-and-messages/kafka-partition.png)
+![](https://raw.githubusercontent.com/h1z3y3/blog_images/master/difference-between-events-and-messages/kafka-partition.png)
 
 业务消息传递 pub/sub 技术有一个更灵活的机制，topic 是可以分层的结构，比如 `/travel/flights/airline/flight-number/seat`，
 每个层次都可以订阅。这让订阅程序可以更细粒度地选择事件。此外，业务消息传递 pub/sub 技术可以用于进一步细化感兴趣的事件。
