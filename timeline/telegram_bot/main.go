@@ -34,6 +34,7 @@ var (
 
 	githubOwner         = os.Getenv("TG_GITHUB_OWNER")
 	githubRepo          = os.Getenv("TG_GITHUB_REPO")
+	githubImageRepo     = os.Getenv("TG_GITHUB_IMAGE_REPO")
 	githubToken         = os.Getenv("TG_GITHUB_TOKEN")
 	githubWorkflowId, _ = strconv.Atoi(os.Getenv("TG_GITHUB_WORKFLOW_ID"))
 
@@ -75,12 +76,11 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 		return "", errors.Wrap(err, "get file by fileId error: "+photo.FileID)
 	}
 
-	fp := "images/" + f.FilePath
 	branch := "emo-update"
 
 	// if already on the github
 	ghFile, _, _, _ := gh.Repositories.GetContents(context.Background(),
-		githubOwner, githubRepo, fp,
+		githubOwner, githubImageRepo, f.FilePath,
 		&github.RepositoryContentGetOptions{Ref: branch})
 
 	if ghFile != nil {
@@ -104,7 +104,7 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 		Branch:  github.String(branch),
 	}
 
-	resp, _, err := gh.Repositories.CreateFile(context.Background(), githubOwner, githubRepo, fp, cfg)
+	resp, _, err := gh.Repositories.CreateFile(context.Background(), githubOwner, githubImageRepo, f.FilePath, cfg)
 	if err != nil {
 		return "", errors.Wrap(err, "upload to github error")
 	}
