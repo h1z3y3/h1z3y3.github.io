@@ -76,7 +76,7 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 		return "", errors.Wrap(err, "get file by fileId error: "+photo.FileID)
 	}
 
-	branch := "emo-update"
+	branch := "master"
 
 	// if already on the github
 	ghFile, _, _, _ := gh.Repositories.GetContents(context.Background(),
