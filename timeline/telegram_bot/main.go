@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -30,7 +31,11 @@ const (
 var (
 	m3oApiKey        = os.Getenv("TG_M3O_TOKEN")
 	telegramBotToken = os.Getenv("TG_BOT_TOKEN")
-	githubToken      = os.Getenv("TG_GITHUB_TOKEN")
+
+	githubOwner         = os.Getenv("TG_GITHUB_OWNER")
+	githubRepo          = os.Getenv("TG_GITHUB_REPO")
+	githubToken         = os.Getenv("TG_GITHUB_TOKEN")
+	githubWorkflowId, _ = strconv.Atoi(os.Getenv("TG_GITHUB_WORKFLOW_ID"))
 
 	adminList = map[string]struct{}{
 		"h1z3y3":  {},
@@ -44,6 +49,10 @@ var (
 	bot *tgbotapi.BotAPI
 	gh  *github.Client
 )
+
+func githubActionsUrl() string {
+	return fmt.Sprintf("https://github.com/%s/%s/actions/runs/%d", githubOwner, githubRepo, githubWorkflowId)
+}
 
 func helpMessage() string {
 	help := strings.Join([]string{
@@ -70,9 +79,8 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 	branch := "emo-update"
 
 	// if already on the github
-
 	ghFile, _, _, _ := gh.Repositories.GetContents(context.Background(),
-		"h1z3y3", "h1z3y3.github.io", fp,
+		githubOwner, githubRepo, fp,
 		&github.RepositoryContentGetOptions{Ref: branch})
 
 	if ghFile != nil {
@@ -96,7 +104,7 @@ func uploadPhotoToGithub(photo tgbotapi.PhotoSize) (string, error) {
 		Branch:  github.String(branch),
 	}
 
-	resp, _, err := gh.Repositories.CreateFile(context.Background(), "h1z3y3", "h1z3y3.github.io", fp, cfg)
+	resp, _, err := gh.Repositories.CreateFile(context.Background(), githubOwner, githubRepo, fp, cfg)
 	if err != nil {
 		return "", errors.Wrap(err, "upload to github error")
 	}
@@ -115,8 +123,20 @@ func responseCommand(message *tgbotapi.Message) (string, error) {
 		response, err = tm.Add(timeline.Timeline{
 			Content: message.CommandArguments(),
 		})
+
+		if err != nil {
+			break
+		}
+		_, err = gh.Actions.RerunWorkflowByID(context.Background(), githubOwner, githubRepo, int64(githubWorkflowId))
+
+		response += "\n\n Triggered Github Action: " + githubActionsUrl()
 	case "delete":
 		response, err = tm.Delete(message.CommandArguments())
+		if err != nil {
+			break
+		}
+		_, err = gh.Actions.RerunWorkflowByID(context.Background(), githubOwner, githubRepo, int64(githubWorkflowId))
+		response += "\n\n Triggered Github Action: " + githubActionsUrl()
 	case "read":
 		var list timeline.Timelines
 		list, err = tm.Read(message.CommandArguments())
@@ -261,7 +281,7 @@ func webhookRobot() {
 func init() {
 	var err error
 
-	// telegram bot
+	//telegram bot
 	bot, err = tgbotapi.NewBotAPI(telegramBotToken)
 	if err != nil {
 		log.Fatal(err)
