@@ -1,56 +1,55 @@
 date: 1654443296
 list:
-- id: 1e16e5da6031563b4f1c113c9d2f422e
-  content: "花了一天多时间，终于把这个 emo list 完成了，感谢 @ankang 帮忙做了一些前端工作 \U0001F44F\U0001F3FB\U0001F44F\U0001F3FB\U0001F44F\U0001F3FB
+  - id: 1e16e5da6031563b4f1c113c9d2f422e
+    content: "花了一天多时间，终于把这个 emo list 完成了，感谢 @ankang 帮忙做了一些前端工作 \U0001F44F\U0001F3FB\U0001F44F\U0001F3FB\U0001F44F\U0001F3FB
     后续应该还要支持图片，争取明天完成 ✊\U0001F3FB"
-  timestamp: 1654443296
-  images: []
-- id: fa04959dada4097c7f27256ea0e7ad1a
-  content: "Atlassian 真的是一家非常优秀的公司 \U0001F929 他家的产品：Confluence Jira Soucetree 都是非常好用的软件
+    timestamp: 1654443296
+    images: []
+  - id: 30b788297f36e5df2dcc1efec1fc3949
+    content: 这是一个图片的测试
+    timestamp: 1654480069
+    images:
+      - photos/file_7.jpg
+      - photos/file_8.jpg
+      - photos/file_9.jpg
+      - photos/file_10.jpg
+  - id: f8373d96ef536a162211ce6c3109ea96
+    content: "下楼做个核酸\U0001FAE0"
+    timestamp: 1654503529
+    images:
+      - photos/file_18.jpg
+  - id: 42bdbbfd7201974842b3328b2166d010
+    content: ✊
+    timestamp: 1654670803
+    images: []
+  - id: 8c08092af1001652a2320d3e0d5393ce
+    content: "\U0001F44F"
+    timestamp: 1654679576
+    images: []
+  - id: fa04959dada4097c7f27256ea0e7ad1a
+    content: "Atlassian 真的是一家非常优秀的公司 \U0001F929 他家的产品：Confluence Jira Soucetree 都是非常好用的软件
     \U0001F44D\U0001F3FB\U0001F44D\U0001F3FB"
-  timestamp: 1654614963
-  images: []
-- id: 39cdc43c89b119c3037ef961522ac2e6
-  content: "\U0001F921"
-  timestamp: 1654655625
-  images: []
-- id: bfdfa2e3568adf50fbfd813d6f33a42f
-  content: "\U0001F4A9"
-  timestamp: 1654655724
-  images: []
-- id: 860b346360437e0b09e792b49822194a
-  content: "\U0001F916"
-  timestamp: 1654656236
-  images: []
-- id: 43f2e641d7a5c2a6e37468de6706d3e2
-  content: 到点该emo了
-  timestamp: 1654443886
-  images:
-  - file_6.jpg
-- id: 2e7703cd7c3df82c0e90380c73dac72a
-  content: "今天这天也太清爽了 \U0001F60D"
-  timestamp: 1654480074
-  images:
-  - file_13.jpg
-  - file_14.jpg
-- id: 68719d10beefe83a4f3e48d3944bd67b
-  content: "马上就要在公司过第五年的生日了 今天收到来自部门小伙伴的生日祝福 \U0001F973"
-  timestamp: 1654500505
-  images:
-  - file_15.jpg
-  - file_16.jpg
-  - file_17.jpg
-- id: 30b788297f36e5df2dcc1efec1fc3949
-  content: 这是一个图片的测试
-  timestamp: 1654480069
-  images:
-  - file_7.jpg
-  - file_8.jpg
-  - file_9.jpg
-  - file_10.jpg
-  - file_11.jpg
-- id: f8373d96ef536a162211ce6c3109ea96
-  content: "下楼做个核酸\U0001FAE0"
-  timestamp: 1654503529
-  images:
-  - file_18.jpg
+    timestamp: 1654614963
+    images: []
+  - id: 39cdc43c89b119c3037ef961522ac2e6
+    content: "\U0001F921"
+    timestamp: 1654655625
+    images: []
+  - id: 43f2e641d7a5c2a6e37468de6706d3e2
+    content: 到点该emo了
+    timestamp: 1654443886
+    images:
+      - photos/file_6.jpg
+  - id: 2e7703cd7c3df82c0e90380c73dac72a
+    content: "今天这天也太清爽了 \U0001F60D"
+    timestamp: 1654480074
+    images:
+      - photos/file_13.jpg
+      - photos/file_14.jpg
+  - id: 68719d10beefe83a4f3e48d3944bd67b
+    content: "马上就要在公司过第五年的生日了 今天收到来自部门小伙伴的生日祝福 \U0001F973"
+    timestamp: 1654500505
+    images:
+      - photos/file_15.jpg
+      - photos/file_16.jpg
+      - photos/file_17.jpg

@@ -19,18 +19,6 @@
     $duration: {{ . }}s;
 {{ end }}
 
-{{ with .Site.Params.pagePaddingTop | default 3 }}
-    $pagePaddingTop: {{ . }}em;
-{{ end }}
-
-{{ if .Site.Params.showPostsDot }}
-    $showPostsDot: true;
-    $postListLeftPadding: 2em;
-{{ else }}
-    $showPostsDot: false;
-    $postListLeftPadding: 0.5em;
-{{ end }}
-
 {{ if eq .Site.Params.headerLayout "flex" }}
     $headerLayoutFlex: true;
 {{ else }}
@@ -99,6 +87,10 @@ $baseRelURL: "{{ strings.TrimSuffix (.Site.BaseURL | relURL) "/" }}";
 // Base
 
 @import "base/base";
+
+{{ if .Site.Params.customizeScrollbar }}
+    @import "base/scrollbar";
+{{ end }}
 
 
 // Typography
@@ -461,11 +453,11 @@ $fofPoster: url({{ $fofPoster }});
 
 // Lunr search
 
-{{ if and (eq .Site.Params.headerLayout "flex") .Site.Params.enableLunrSearch }}
-    $enableLunrSearch: true;
+{{ if and (eq .Site.Params.headerLayout "flex") (or .Site.Params.enableLunrSearch .Site.Params.enableAlgoliaSearch) }}
+    $enableSearch: true;
     @import "components/search";
 {{ else }}
-    $enableLunrSearch: false;
+    $enableSearch: false;
 {{ end }}
 
 

@@ -825,7 +825,7 @@ uglyURLs = false
     displayPublishedDate = true
     publishedDateIcon = "calendar-alt"
 
-    displayModifiedDate = true
+    displayModifiedDate = false
     modifiedDateIcon = "calendar-check"
 
     displayExpiredDate = true
@@ -1403,3 +1403,7 @@ uglyURLs = false
     fofVideoMp4 = ""
     # Note: you can leave these two
     #       options empty("")
+
+    # github repo of images
+    # blogImagePrefix = "https://ghproxy.com/https://raw.githubusercontent.com/h1z3y3/blog_images/master/"
+    blogImagePrefix = "https://raw.githubusercontent.com/h1z3y3/blog_images/master/"

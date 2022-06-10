@@ -11,6 +11,9 @@
         {{- end -}}
     {{- end -}}
 
+    <!-- https://web.dev/color-scheme/ -->
+    <meta name="color-scheme" content="light dark">
+
     <!-- Responsive Web Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Avoid Automatic Format Detection -->
@@ -71,8 +74,6 @@
     {{ with .OutputFormats.Get "SectionsRSS" -}}
         <link rel="{{ .Rel }}" type="{{ .MediaType }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
     {{ end }}
-
-    <script src="http://use.edgefonts.net/merriweather:n3,n4,n7,n9.js"></script>
 
     <!-- SEO -->
     <link rel="canonical" href="{{ .Permalink }}" />

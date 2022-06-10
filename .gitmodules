@@ -1,3 +1,7 @@
 [submodule "images"]
 	path = images
 	url = https://github.com/h1z3y3/blog_images
+
+[submodule "themes/meme"]
+	path = themes/meme
+	url = https://github.com/reuixiy/hugo-theme-meme

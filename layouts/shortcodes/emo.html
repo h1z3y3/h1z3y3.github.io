@@ -95,7 +95,7 @@
         transform: translate(-8px, -50%);
     }
 
-    .emo .entry:nth-child(2n)  .body p {
+    .emo .entry:nth-child(2n) .body p {
         text-align: left;
     }
 
@@ -104,6 +104,8 @@
         width: 100%;
         flex-wrap: wrap;
         flex-direction: row-reverse;
+        border-radius: 12px;
+        overflow: hidden;
     }
 
     .emo .entry:nth-child(2n) .img-box {
@@ -116,15 +118,17 @@
     .img-box .img-item {
         position: relative;
         width: 30%;
-        margin: 0 5px 5px 0;
+        /*margin: 0 5px 5px 0;*/
         overflow: hidden;
     }
 
     .img-box .img-item img {
         margin: 0;
         width: 100%;
-        height: auto;
+        /*height: auto;*/
+        height: 100%;
         object-fit: cover;
+        max-height: 1000px;
     }
 
     @media screen and (max-width: 900px) {
@@ -165,8 +169,10 @@
 {{ define "emo" }}
 
 <div class="emo">
+    {{ $ := index . "$" }}
+    {{ $list := .list }}
 
-    {{ range first 1 . }}
+    {{ range first 1 $list }}
     <div class="year">
         {{ dateFormat "Jan 2006" .timestamp }}
     </div>
@@ -174,7 +180,7 @@
 
     <div class="entries">
 
-        {{ range sort . "timestamp" "desc"}}
+        {{ range sort $list "timestamp" "desc"}}
         <div class="entry">
             <div class="title">
                 <span>{{ dateFormat "Mon 01/02" .timestamp }}</span>
@@ -184,25 +190,37 @@
                 <p>{{ .content }}</p>
                 <div class="img-box">
                     {{ $imageLen := .images | len }}
-                    {{ $maxWidth := 31 }}
-                    {{ $maxHeight := 0 }}
-                    {{ $paddingBottom := 30 }}
+                    {{ $mm := mod $imageLen 3 }}
+
+                    {{ $maxWidth := 33.33 }}
+                    {{ $maxHeight := 130 }}
 
                     {{ if eq $imageLen 1 }}
-                        {{ $maxWidth = 96 }}
-                        {{ $paddingBottom = 0 }}
-                        {{ $maxHeight = -1 }}
+                    {{ $maxWidth = 100 }}
+                    {{ $maxHeight = 500 }}
                     {{ else if eq $imageLen 2 }}
-                        {{ $maxWidth = 48 }}
-                        {{ $paddingBottom = 0 }}
-                        {{ $maxHeight = -1 }}
+                    {{ $maxWidth = 50 }}
+                    {{ $maxHeight = 400 }}
                     {{ end }}
-                    
-                    {{ range .images }}
-                    <div class="img-item" style="width: {{ $maxWidth }}%; padding-bottom: {{ $paddingBottom }}%; {{if gt $maxHeight  -1}}height: {{$maxHeight}};{{end}};">
-                        <img src="https://ghproxy.com/https://raw.githubusercontent.com/h1z3y3/blog_images/master/{{ . }}" class="img-thumbnail " alt="">
+
+
+                    {{ range $index, $value := .images }}
+                    {{ if and (eq $mm 2) (gt (add $index 3) $imageLen) }}
+                    {{ $maxWidth = 50 }}
+                    {{ $maxHeight = 400 }}
+                    {{end}}
+                    {{ if and (eq $mm 1) (gt (add $index 2) $imageLen) }}
+                    {{ $maxWidth = 100 }}
+                    {{ $maxHeight = 400 }}
+                    {{end}}
+
+                    <div class="img-item"
+                         style=";width: {{ $maxWidth }}%; max-height: {{$maxHeight}}px;">
+                        <img src="{{ $.Site.Params.blogImagePrefix }}{{ $value }}"
+                             class="img-thumbnail " alt="">
                     </div>
                     {{ end }}
+
                 </div>
             </div>
         </div>
@@ -214,5 +232,5 @@
 
 
 {{ range sort $.Site.Data.emo "date" "desc" }}
-{{ template "emo" .list }}
+{{ template "emo" (dict "$" $ "list" .list)}}
 {{ end }}

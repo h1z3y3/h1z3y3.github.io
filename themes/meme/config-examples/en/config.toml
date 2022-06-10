@@ -91,6 +91,10 @@ uglyURLs = false
         endLevel = 6
         ordered = true
 
+# HTML minify
+[minify.tdewolff.html]
+    keepWhitespace = false
+
 # Author’s information
 [author]
     # Name
@@ -141,9 +145,17 @@ uglyURLs = false
     mediaType = "application/json"
     baseName = "search"
 
+# Search index for Algolia
+[outputFormats.Algolia]
+    mediaType = "application/json"
+    baseName = "algolia"
+    isPlainText = true
+    notAlternative = true
+
 # Hugo’s output control
 [outputs]
     page = ["HTML"]
+    # home = ["HTML", "SectionsAtom", "SectionsRSS", "SearchIndex", "Algolia"]
     home = ["HTML", "SectionsAtom", "SectionsRSS", "SearchIndex"]
     section = ["HTML"]
     taxonomy = ["HTML"]
@@ -173,7 +185,7 @@ uglyURLs = false
 
 # The configuration instructions in the
 # menu are as follows:
-# url           URL
+# pageref/url   internal/external URL
 # name          Text (won’t display if it
 #               is left empty("") or does
 #               not exist)
@@ -192,31 +204,31 @@ uglyURLs = false
 [menu]
     ## Menu bar
     # [[menu.main]]
-    #     url = "/"
+    #     pageref = "/"
     #     name = "Home"
     #     weight = 1
     #     pre = "internal"
     #     post = "home"
     [[menu.main]]
-        url = "/posts/"
+        pageref = "/posts/"
         name = "Posts"
         weight = 2
         pre = "internal"
         post = "archive"
     [[menu.main]]
-        url = "/categories/"
+        pageref = "/categories/"
         name = "Categories"
         weight = 3
         pre = "internal"
         post = "th"
     [[menu.main]]
-        url = "/tags/"
+        pageref = "/tags/"
         name = "Tags"
         weight = 4
         pre = "internal"
         post = "tags"
     [[menu.main]]
-        url = "/about/"
+        pageref = "/about/"
         name = "About"
         weight = 5
         pre = "internal"
@@ -949,6 +961,11 @@ uglyURLs = false
 
 
     ######################################
+    # Scrollbar
+    customizeScrollbar = true
+
+
+    ######################################
     # Typography
 
     ######################################
@@ -1242,6 +1259,7 @@ uglyURLs = false
 
     displayFooterInHome = true
 
+    displayCopyleftSymbol = false
     displayCopyrightSymbol = true
 
     displaySiteCreatedYear = true
@@ -1360,10 +1378,28 @@ uglyURLs = false
     # Lunr search
 
     # Note: This requires SearchIndex
-    # output to be enabled.
+    #       output to be enabled.
 
     enableLunrSearch = true
     # Note: https://lunrjs.com/
+
+
+    ######################################
+    # Algolia search
+
+    # Note: This requires Algolia
+    #       output to be enabled.
+    #       And you need to upload the
+    #       generated algolia.json to
+    #       Algolia every time you rebuild
+    #       your site.
+
+    enableAlgoliaSearch = false
+
+    algoliaAppId = ""
+    algoliaApiKey = ""
+    algoliaIndexName = ""
+    # Note: https://www.algolia.com/
 
 
     ######################################
