@@ -89,6 +89,10 @@ uglyURLs = false
         endLevel = 6
         ordered = true
 
+# 壓縮 HTML
+[minify.tdewolff.html]
+    keepWhitespace = false
+
 # 作者資訊
 [author]
     # 名字
@@ -135,14 +139,21 @@ uglyURLs = false
     baseName = "rss"
 
 # lunr.js 的搜尋索引
-# [outputFormats.SearchIndex]
-#     mediaType = "application/json"
-#     baseName = "search"
+[outputFormats.SearchIndex]
+    mediaType = "application/json"
+    baseName = "search"
+
+# Algolia 的搜尋索引
+[outputFormats.Algolia]
+    mediaType = "application/json"
+    baseName = "algolia"
+    isPlainText = true
+    notAlternative = true
 
 # Hugo 的輸出控制
 [outputs]
     page = ["HTML"]
-    # home = ["HTML", "SectionsAtom", "SectionsRSS", "SearchIndex"]
+    # home = ["HTML", "SectionsAtom", "SectionsRSS", "SearchIndex", "Algolia"]
     home = ["HTML", "SectionsAtom", "SectionsRSS"]
     section = ["HTML"]
     taxonomy = ["HTML"]
@@ -166,7 +177,7 @@ uglyURLs = false
 # 4. links      連結欄（關於頁面的極簡頁尾）
 
 # 選單內的配置說明如下：
-# url           連結地址
+# pageref/url   內鏈地址/外鏈地址
 # name          文字（留空（""）則無）
 # weight        位置
 # pre           內鏈（internal）或外鏈（external）
@@ -179,31 +190,31 @@ uglyURLs = false
 [menu]
     ## 選單欄
     # [[menu.main]]
-    #     url = "/"
+    #     pageref = "/"
     #     name = "首頁"
     #     weight = 1
     #     pre = "internal"
     #     post = "home"
     [[menu.main]]
-        url = "/posts/"
+        pageref = "/posts/"
         name = "文章"
         weight = 2
         pre = "internal"
         post = "archive"
     [[menu.main]]
-        url = "/categories/"
+        pageref = "/categories/"
         name = "分類"
         weight = 3
         pre = "internal"
         post = "th"
     [[menu.main]]
-        url = "/tags/"
+        pageref = "/tags/"
         name = "標籤"
         weight = 4
         pre = "internal"
         post = "tags"
     [[menu.main]]
-        url = "/about/"
+        pageref = "/about/"
         name = "關於"
         weight = 5
         pre = "internal"
@@ -900,6 +911,11 @@ uglyURLs = false
 
 
     ######################################
+    # 滾動條
+    customizeScrollbar = true
+
+
+    ######################################
     # 字型排版
 
     ######################################
@@ -1208,6 +1224,7 @@ uglyURLs = false
     # 是否在首頁顯示
     displayFooterInHome = true
 
+    displayCopyleftSymbol = false
     # 是否顯示版權符號（©）
     displayCopyrightSymbol = true
 
@@ -1336,6 +1353,21 @@ uglyURLs = false
 
     enableLunrSearch = false
     # 說明：https://lunrjs.com/
+
+
+    ######################################
+    # Algolia 搜尋
+
+    # 說明：需要開啟 `Algolia` 的輸出，且需要每
+    #      次將生成的 algolia.json 文件上傳到
+    #      Algolia
+
+    enableAlgoliaSearch = false
+
+    algoliaAppId = ""
+    algoliaApiKey = ""
+    algoliaIndexName = ""
+    # 說明：https://www.algolia.com/
 
 
     ######################################

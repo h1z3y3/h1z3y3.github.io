@@ -20,7 +20,7 @@
 }
 
 .post-body {
-    margin-top: 2em !important;
+    margin-top: 5em !important;
     a {
         text-decoration: underline;
         text-decoration-color: var(--color-contrast-low);
@@ -34,8 +34,6 @@
     p {
         margin: 1em 0;
         line-height: $lineHeight;
-        font-family: 'Merriweather', serif;;
-        letter-spacing: 1px;
     }
     img {
         display: block;
@@ -72,24 +70,6 @@
             padding-left: 2em;
         }
     }
-}
-
-.e-content {
-
-    a {
-        text-decoration: none;
-        color: inherit;
-        border-bottom: 2px solid #81a6ed;
-        box-shadow: inset 0 -3px 0 #4d85f1;
-        background: transparent;
-        transition: background 150ms ease;
-    }
-
-    a:hover,
-    a:focus {
-        background: rgba(160, 189, 248, 0.61);
-    }
-
 }
 
 blockquote {
