@@ -1405,5 +1405,5 @@ uglyURLs = false
     #       options empty("")
 
     # github repo of images
-    # blogImagePrefix = "https://ghproxy.com/https://raw.githubusercontent.com/h1z3y3/blog_images/master/"
-    blogImagePrefix = "https://raw.githubusercontent.com/h1z3y3/blog_images/master/"
+    blogImagePrefix = "https://ghproxy.com/https://raw.githubusercontent.com/h1z3y3/blog_images/master/"
+    # blogImagePrefix = "https://raw.githubusercontent.com/h1z3y3/blog_images/master/"
