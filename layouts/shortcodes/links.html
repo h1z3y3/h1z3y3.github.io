@@ -29,6 +29,18 @@
         line-height: 1.7;
     }
 
+    @media screen and (max-width: 900px) {
+        .card img {
+            text-align: center;
+            margin: auto;
+        }
+
+        .card-text {
+            text-align: center;
+        }
+
+    }
+
 </style>
 
 <br>
@@ -40,7 +52,7 @@
 
     <div class="card col-md-6">
         <div class="row no-gutters">
-            <div class="col-md-4">
+            <div class="col-md-4 card-img">
                 <img src="{{.avatar}}" class="card-img-top">
             </div>
 
