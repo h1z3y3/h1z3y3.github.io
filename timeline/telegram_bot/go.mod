@@ -3,7 +3,7 @@ module github.com/h1z3y3/h1z3y3.github.io/timeline/telegram_bot
 go 1.17
 
 require (
-	github.com/beego/beego/v2 v2.0.3
+	github.com/beego/beego/v2 v2.0.4
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/google/go-github/v45 v45.0.0
 	github.com/pkg/errors v0.9.1
